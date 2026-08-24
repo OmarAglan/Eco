@@ -144,10 +144,10 @@
       "path": "ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "22793b4e6ad3076b856ad27ba694c5799b3a3d7b",
+      "revision": "132cb82a742b03ed0460438f448371385d20bc2d",
       "role": "arabic-first-shell-and-terminal-host",
       "verification": {
-        "state": "source-reviewed-test-refresh-blocked-dotnet9-sdk-missing",
+        "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
       },
       "provides": [

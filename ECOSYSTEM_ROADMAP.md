@@ -170,6 +170,9 @@ duplicating shell parsing or build semantics inside the IDE.
 
 - [x] Register ArbSh as an independently released ecosystem project with clear
       ownership and an exact workspace revision.
+- [x] Establish the .NET 10/C# 14 baseline, unified build metadata, clean
+      136-test Windows receipt, vulnerability audit, self-contained Windows
+      publish checks, and Windows/Linux CI gates.
 - [ ] Freeze `arbsh-host-v1`: version discovery, UTF-8 logical input/output,
       working directory, environment, exit status, cancellation, and explicit
       interactive versus non-interactive modes.
