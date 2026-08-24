@@ -144,7 +144,7 @@
       "path": "ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "132cb82a742b03ed0460438f448371385d20bc2d",
+      "revision": "852c9062c12e987a2d9009757fac05a9e940e6dd",
       "role": "arabic-first-shell-and-terminal-host",
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
@@ -154,6 +154,7 @@
         "arbsh-core-v0.8-preview",
         "arabic-command-surface-v0.8-preview",
         "arabic-bidi-terminal-v0.8-preview",
+        "arbsh-structured-process-v1-preview-local-windows-verified",
         "arbsh-host-v1-planned",
         "eco-arabic-text-corpus-v1-planned"
       ],

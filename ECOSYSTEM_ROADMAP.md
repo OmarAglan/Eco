@@ -176,9 +176,13 @@ duplicating shell parsing or build semantics inside the IDE.
 - [ ] Freeze `arbsh-host-v1`: version discovery, UTF-8 logical input/output,
       working directory, environment, exit status, cancellation, and explicit
       interactive versus non-interactive modes.
-- [ ] Add structured external-process execution using argv/cwd/environment and
-      separate stdout/stderr; never launch Eco tools through concatenated shell
-      command strings.
+- [x] Add the reusable non-interactive structured-process core using
+      argv/cwd/environment, UTF-8 stdin/stdout/stderr, exit/failure
+      classification, and cancellation without a shell command string; its ten
+      focused tests and all 146 ArbSh tests pass locally on Windows.
+- [ ] Route unresolved ArbSh commands and Eco tool invocations through that
+      structured process core while preserving built-in precedence, session
+      state, exit codes, and separate stdout/stderr.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, process-tree cancellation, resize, and terminal control flow.
 - [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
