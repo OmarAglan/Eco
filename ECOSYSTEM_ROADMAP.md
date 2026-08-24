@@ -201,6 +201,11 @@ duplicating shell parsing or build semantics inside the IDE.
       and brand the GUI, executable, and package with an original Arabic icon.
       All 161 ArbSh tests pass locally on Windows at revision
       `e94f7e785c698cfb1b3675da71c7ad3eef9e82fc`.
+- [x] Raise the terminal's high-contrast Arabic typography, add bounded
+      keyboard/mouse zoom, make `الأوامر` and bare `مساعدة` enumerate the full
+      Arabic command catalog, and gate every command/parameter against missing
+      Arabic metadata plus smoke execution. All 175 ArbSh tests pass locally on
+      Windows at revision `4ee9179bb67468f765f0fc745713f29b27afd340`.
 - [ ] Obtain the Linux CI receipt for those process-group gates; macOS retains
       the visible transitional .NET tree-kill mode.
 - [x] Polish the standalone terminal with Arabic application chrome and icon,
