@@ -180,9 +180,12 @@ duplicating shell parsing or build semantics inside the IDE.
       argv/cwd/environment, UTF-8 stdin/stdout/stderr, exit/failure
       classification, and cancellation without a shell command string; its ten
       focused tests and all 146 ArbSh tests pass locally on Windows.
-- [ ] Route unresolved ArbSh commands and Eco tool invocations through that
-      structured process core while preserving built-in precedence, session
-      state, exit codes, and separate stdout/stderr.
+- [x] Route unresolved ArbSh commands through that structured process core
+      while preserving built-in precedence, session working directory,
+      bidirectional line-oriented pipelines, redirection, exit codes, separate
+      stdout/stderr, launch failure, and cancellation. Nine focused tests and
+      all 155 ArbSh tests pass locally on Windows; dedicated Arabic `تشغيل`
+      dispatch for Baa/Takween remains separate below.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, process-tree cancellation, resize, and terminal control flow.
 - [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
