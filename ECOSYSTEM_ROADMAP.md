@@ -186,8 +186,15 @@ duplicating shell parsing or build semantics inside the IDE.
       stdout/stderr, launch failure, and cancellation. Nine focused tests and
       all 155 ArbSh tests pass locally on Windows; dedicated Arabic `تشغيل`
       dispatch for Baa/Takween remains separate below.
+- [x] Own launched Windows process trees with a kill-on-close Job Object,
+      expose the active ownership mode, fail closed when assignment fails, and
+      verify cancellation removes a real descendant. Eleven focused runner
+      tests and all 156 ArbSh tests pass locally on Windows at revision
+      `e04e99bba7c573317d5f9b06d63102eac6e9842b`.
+- [ ] Add native POSIX process groups and pass the same no-surviving-descendant
+      gate in Linux CI; the visible .NET tree-kill mode is transitional only.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
-      processes, process-tree cancellation, resize, and terminal control flow.
+      processes, live streams, resize, and terminal control flow.
 - [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
 - [ ] Add Qalam shell profiles and host the ArbSh CLI in its bottom terminal
