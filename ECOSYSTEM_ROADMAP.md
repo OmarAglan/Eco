@@ -191,8 +191,16 @@ duplicating shell parsing or build semantics inside the IDE.
       verify cancellation removes a real descendant. Eleven focused runner
       tests and all 156 ArbSh tests pass locally on Windows at revision
       `e04e99bba7c573317d5f9b06d63102eac6e9842b`.
-- [ ] Add native POSIX process groups and pass the same no-surviving-descendant
-      gate in Linux CI; the visible .NET tree-kill mode is transitional only.
+- [x] Implement Linux launch through util-linux `setsid` with direct argv,
+      effective-PATH preflight, session verification, group termination, and
+      the same cancellation plus normal-root-exit descendant tests. All 159
+      ArbSh tests pass locally on Windows at revision
+      `8ef3176ac9dee25135f37998d6cbe390a42ec524`.
+- [ ] Obtain the Linux CI receipt for those process-group gates; macOS retains
+      the visible transitional .NET tree-kill mode.
+- [x] Polish the standalone terminal with Arabic application chrome, a compact
+      live working-directory panel, execution status, shortcut hints, larger
+      typography, and focused GUI model tests.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, live streams, resize, and terminal control flow.
 - [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
