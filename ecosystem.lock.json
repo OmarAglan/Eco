@@ -144,7 +144,7 @@
       "path": "ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "8ef3176ac9dee25135f37998d6cbe390a42ec524",
+      "revision": "e94f7e785c698cfb1b3675da71c7ad3eef9e82fc",
       "role": "arabic-first-shell-and-terminal-host",
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
@@ -158,6 +158,7 @@
         "arbsh-external-command-v1-preview-local-windows-verified",
         "arbsh-windows-job-tree-v1-preview-local-verified",
         "arbsh-posix-process-group-v1-preview-implemented-ci-pending",
+        "arbsh-live-output-v1-preview-local-windows-verified",
         "arbsh-terminal-chrome-v0.8-local-windows-verified",
         "arbsh-host-v1-planned",
         "eco-arabic-text-corpus-v1-planned"

@@ -196,13 +196,19 @@ duplicating shell parsing or build semantics inside the IDE.
       the same cancellation plus normal-root-exit descendant tests. All 159
       ArbSh tests pass locally on Windows at revision
       `8ef3176ac9dee25135f37998d6cbe390a42ec524`.
+- [x] Add typed incremental stdout/stderr streaming while retaining complete
+      captured results, consume final pipeline output before the process exits,
+      and brand the GUI, executable, and package with an original Arabic icon.
+      All 161 ArbSh tests pass locally on Windows at revision
+      `e94f7e785c698cfb1b3675da71c7ad3eef9e82fc`.
 - [ ] Obtain the Linux CI receipt for those process-group gates; macOS retains
       the visible transitional .NET tree-kill mode.
-- [x] Polish the standalone terminal with Arabic application chrome, a compact
-      live working-directory panel, execution status, shortcut hints, larger
-      typography, and focused GUI model tests.
+- [x] Polish the standalone terminal with Arabic application chrome and icon,
+      a compact live working-directory panel, execution status, shortcut hints,
+      larger typography, and focused GUI model tests.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
-      processes, live streams, resize, and terminal control flow.
+      processes, incremental stdin, resize, terminal control flow, and
+      background jobs.
 - [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
 - [ ] Add Qalam shell profiles and host the ArbSh CLI in its bottom terminal
