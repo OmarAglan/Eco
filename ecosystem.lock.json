@@ -175,7 +175,7 @@
       "path": "Baa-Developer-Kit",
       "version": "0.3.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "508eb197be97979ca0d1908c54979fbc4b5ed981",
+      "revision": "6494b1b268b6afcbf1b345f564b3a4bcba5cadc2",
       "role": "offline-installer-orchestrator",
       "verification": {
         "state": "local-windows-upgrade-repair-uninstall-verified-ci-pending",
