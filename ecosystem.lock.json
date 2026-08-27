@@ -80,7 +80,7 @@
       "path": "Qalam-IDE",
       "version": "3.5.0",
       "version_source": "CMakeLists.txt",
-      "revision": "d4ded80feef6c225388c895e926de1fb3d3bb54e",
+      "revision": "e660a1625bb2a97a63792086570e3638b3c425c0",
       "role": "rtl-ide-tooling-client",
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
@@ -178,7 +178,7 @@
       "path": "Baa-Developer-Kit",
       "version": "0.4.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "eea68e348e3b9f037437d53122532c9190113ca7",
+      "revision": "978c88b84cec9d378940a1a6d8bb2ee0b87b3872",
       "role": "offline-installer-orchestrator",
       "verification": {
         "state": "local-windows-package-verified-lifecycle-ci-pending",
