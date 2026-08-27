@@ -99,11 +99,11 @@ if (Test-Path -LiteralPath $lockPath) {
 
 Require-Match 'Baa/CMakeLists.txt' 'project\(baa VERSION 0\.6\.0' 'Baa 0.6.0 version'
 Require-Match 'Nazm/CMakeLists.txt' 'VERSION 0\.4\.0' 'Nazm 0.4.0 version'
-Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.4\.0' 'Qalam 3.4.0 version'
+Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.5\.0' 'Qalam 3.5.0 version'
 Require-Match 'Baa-LSP/CMakeLists.txt' 'project\(BaaLSP VERSION 0\.1\.0' 'Baa-LSP 0.1.0 version'
 Require-Match 'Takween/scripts/build_takween.ps1' '\$Version = "0\.1\.0"' 'Takween 0.1.0 version'
 Require-Match 'ArbSh/README.md' 'Current Version:\*\* 0\.8\.1-alpha' 'ArbSh 0.8.1-alpha version'
-Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.3\.0'" 'Baa Developer Kit 0.3.0 version'
+Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.4\.0'" 'Baa Developer Kit 0.4.0 version'
 Require-Match 'Pyramid-Engine/CMakeLists.txt' 'project\(Pyramid VERSION 0\.6\.0' 'Pyramid Engine 0.6.0 version'
 Require-Match 'PyramidOS/docs/ROADMAP_L3_TACTICAL.md' 'Current Kernel:\*\* v0\.8\.1' 'PyramidOS 0.8.1 baseline'
 
@@ -168,6 +168,10 @@ Require-Match 'Qalam-IDE/documents/BAA_LSP_INTEGRATION_AR.md' 'inlay-hints-json-
 Require-Match 'Qalam-IDE/documents/BAA_LSP_INTEGRATION_AR.md' 'baa-lsp-log-v1' 'Qalam structured log consumption'
 Require-Match 'Qalam-IDE/tests/CMakeLists.txt' 'CheckQalamNaming\.cmake' 'Qalam-owned source naming guard'
 Require-Match 'Qalam-IDE/tests/CMakeLists.txt' '--unset=PATH' 'Qalam deterministic Windows test runtime'
+Require-Match 'Qalam-IDE/documents/WORKBENCH_EVOLUTION_AR.md' 'المرحلة أ: فتح المشروع واستعادة الجلسة — مكتملة في 3\.5\.0' 'Qalam Workbench Phase A receipt'
+Require-Match 'Qalam-IDE/documents/WORKBENCH_EVOLUTION_AR.md' 'المرحلة ب: مجموعات المحرر — مكتملة في 3\.5\.0' 'Qalam Workbench Phase B receipt'
+Require-Match 'Qalam-IDE/tests/CMakeLists.txt' 'TestEditorWorkspace\.cpp' 'Qalam shared editor workspace tests'
+Require-Match 'Qalam-IDE/tests/CMakeLists.txt' 'TestWelcomePage\.cpp' 'Qalam recent-project welcome tests'
 Require-Match 'Baa-LSP/tests/CMakeLists.txt' '--unset=PATH' 'Baa-LSP deterministic Windows test runtime'
 if ($takweenPackages) {
     Require-AbsoluteMatch $takweenPackages.FullName 'takween-index-v1' 'Takween local package index contract'

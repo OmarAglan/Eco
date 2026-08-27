@@ -77,9 +77,23 @@ workflows through Takween.
 - [x] Retain direct Baa compile as an explicit single-file fallback.
 - [x] Add Qt tests for compiler argument construction, JSON parsing, and Takween
       project discovery/invocation.
+- [x] Complete Qalam Workbench Phase A with separate recent projects/files,
+      reopen/remove actions, autosaved crash recovery, and an interrupted-session
+      restoration test through the real file manager.
+- [x] Complete Workbench Phase B with one shared document model, at most two
+      horizontal or vertical editor groups, tab drag/move actions, shared
+      content/save/undo state, one bottom panel, and persisted/restored tabs,
+      active documents, orientation, and splitter sizes.
 
 **Gate:** opening a broken Takween project displays the correct structured Baa
 diagnostic; fixing it allows build and run through Takween.
+
+**Workbench receipt (2026-08-27):** Qalam 3.5.0 passed 28/28 local Windows
+tests, including the recent-project, crash-recovery, shared-document, disk-save,
+two-group, and split-session fixtures. Its isolated Qalam + Baa-LSP payload and
+standalone installer built successfully. Baa Developer Kit 0.4.0 records and
+packages that exact installer; clean all-users lifecycle and cross-platform CI
+remain release gates.
 
 ### E2.1 — Baa language-server boundary
 

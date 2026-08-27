@@ -78,9 +78,9 @@
     {
       "id": "qalam",
       "path": "Qalam-IDE",
-      "version": "3.4.0",
+      "version": "3.5.0",
       "version_source": "CMakeLists.txt",
-      "revision": "75aec0c578cf48ff57497d9932a856053923440f",
+      "revision": "d4ded80feef6c225388c895e926de1fb3d3bb54e",
       "role": "rtl-ide-tooling-client",
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
@@ -94,7 +94,10 @@
         "baa-lsp-client-inlay-hints-cross-platform-verified",
         "baa-lsp-log-v1-client-cross-platform-verified",
         "qalam-owned-source-naming-cross-platform-verified",
-        "qalam-baa-lsp-baa-nazm-packages-cross-platform-verified"
+        "qalam-baa-lsp-baa-nazm-packages-cross-platform-verified",
+        "qalam-recent-projects-crash-recovery-v3.5-local-windows-verified",
+        "qalam-shared-two-group-workbench-v3.5-local-windows-verified",
+        "qalam-installer-v3.5-with-baa-lsp-v0.1-local-windows-package-verified"
       ],
       "consumes": [
         "baa-lsp-v0.1-cross-platform-real-process-verified",
@@ -173,23 +176,23 @@
     {
       "id": "baa-developer-kit",
       "path": "Baa-Developer-Kit",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "6494b1b268b6afcbf1b345f564b3a4bcba5cadc2",
+      "revision": "eea68e348e3b9f037437d53122532c9190113ca7",
       "role": "offline-installer-orchestrator",
       "verification": {
-        "state": "local-windows-upgrade-repair-uninstall-verified-ci-pending",
+        "state": "local-windows-package-verified-lifecycle-ci-pending",
         "receipt": null
       },
       "provides": [
         "eco-installer-manifest-v1-local-windows-verified",
-        "baa-developer-kit-installer-v0.3"
+        "baa-developer-kit-installer-v0.4-local-build-verified"
       ],
       "consumes": [
         "nazm-installer-v0.4",
         "baa-installer-v0.6",
         "takween-installer-v0.1",
-        "qalam-installer-v3.4-with-baa-lsp-v0.1"
+        "qalam-installer-v3.5-with-baa-lsp-v0.1-local-windows-package-verified"
       ]
     },
     {
