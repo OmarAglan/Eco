@@ -99,11 +99,11 @@ if (Test-Path -LiteralPath $lockPath) {
 
 Require-Match 'Baa/CMakeLists.txt' 'project\(baa VERSION 0\.6\.0' 'Baa 0.6.0 version'
 Require-Match 'Nazm/CMakeLists.txt' 'VERSION 0\.4\.0' 'Nazm 0.4.0 version'
-Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.5\.0' 'Qalam 3.5.0 version'
+Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.6\.0' 'Qalam 3.6.0 version'
 Require-Match 'Baa-LSP/CMakeLists.txt' 'project\(BaaLSP VERSION 0\.1\.0' 'Baa-LSP 0.1.0 version'
 Require-Match 'Takween/scripts/build_takween.ps1' '\$Version = "0\.1\.0"' 'Takween 0.1.0 version'
 Require-Match 'ArbSh/README.md' 'Current Version:\*\* 0\.8\.1-alpha' 'ArbSh 0.8.1-alpha version'
-Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.4\.0'" 'Baa Developer Kit 0.4.0 version'
+Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.5\.0'" 'Baa Developer Kit 0.5.0 version'
 Require-Match 'Pyramid-Engine/CMakeLists.txt' 'project\(Pyramid VERSION 0\.6\.0' 'Pyramid Engine 0.6.0 version'
 Require-Match 'PyramidOS/docs/ROADMAP_L3_TACTICAL.md' 'Current Kernel:\*\* v0\.8\.1' 'PyramidOS 0.8.1 baseline'
 

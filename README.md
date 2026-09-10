@@ -7,15 +7,21 @@ Eco is the integration workspace for nine independently released projects:
 | [Baa](https://github.com/OmarAglan/Baa) | Arabic-first systems language, reference compiler, standard library, and tooling contracts | 0.6.0 |
 | [Nazm](https://github.com/OmarAglan/Nazm) | Arabic-first x86-64 assembler and ELF64/COFF object writer | 0.4.0 |
 | [Takween](https://github.com/OmarAglan/Takween) | Project build, run, test, dependency, and package workflow | 0.1.0 |
-| [Qalam-IDE](https://github.com/OmarAglan/Qalam-IDE) | RTL-first editor and graphical tooling client | 3.5.0 |
+| [Qalam-IDE](https://github.com/OmarAglan/Qalam-IDE) | RTL-first editor and graphical tooling client | 3.6.0 |
 | [Baa-LSP](https://github.com/OmarAglan/Baa-LSP) | Baa-only Language Server Protocol adapter between editors and the reference compiler | 0.1.0 preview |
 | [ArbSh](https://github.com/RuqoomTech/ArbSh) | Arabic-first shell and standalone terminal host | 0.8.1-alpha |
-| [Baa-Developer-Kit](https://github.com/OmarAglan/Baa-Developer-Kit) | Offline installer orchestration and release manifest owner | 0.4.0 |
+| [Baa-Developer-Kit](https://github.com/OmarAglan/Baa-Developer-Kit) | Offline installer orchestration and release manifest owner | 0.5.0 local candidate |
 | [Pyramid-Engine](https://github.com/RuqoomTech/Pyramid-Engine) | Arabic-capable native runtime and future Baa scripting consumer | 0.6.0-pre-alpha |
 | [PyramidOS](https://github.com/RuqoomTech/PyramidOS) | Experimental freestanding consumer and long-term systems testbed | 0.8.1 baseline |
 
 The projects remain separate repositories. This directory owns only their shared
 compatibility snapshot, integration roadmap, and cross-project verification.
+
+The 0.5.0 kit snapshot includes the refreshed installer presentation and logs,
+with Qalam 3.6.0. Its [verification record](https://github.com/OmarAglan/Baa-Developer-Kit/blob/main/docs/VERIFICATION_STATUS.md)
+separates completed local checks from the remaining Qalam visual/Linux gates,
+Takween full-suite verification, and clean Windows installer lifecycle checks.
+The pinned source revisions do not by themselves establish release readiness.
 
 ## Intended hosted workflow
 
