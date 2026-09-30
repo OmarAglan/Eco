@@ -1,0 +1,63 @@
+name: Ecosystem consistency
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Mondays, so a pin that silently rotted is caught the same week.
+    - cron: '20 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lock-and-docs:
+    name: Lock structure and roadmap agreement
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify lock, contracts, and milestone evidence
+        shell: pwsh
+        run: ./scripts/check-ecosystem.ps1 -LockOnly
+
+  pinned-revisions:
+    name: Every pin exists upstream
+    needs: lock-and-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # RuqoomTech repositories may be private; a PAT with read access to
+      # their contents turns "not found" into a real answer.
+      - name: Query each pinned commit in its pinned repository
+        shell: pwsh
+        env:
+          ECOSYSTEM_PAT: ${{ secrets.ECOSYSTEM_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/check-pinned-revisions.ps1
+
+  materialized-combination:
+    name: Full check at the pinned combination
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    needs: lock-and-docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: eco-source
+
+      - name: Materialize the nine pinned revisions
+        shell: pwsh
+        env:
+          ECOSYSTEM_PAT: ${{ secrets.ECOSYSTEM_PAT }}
+        run: ./eco-source/scripts/materialize-workspace.ps1 -TargetRoot materialized -Force
+
+      - name: Run the unmodified umbrella gate against it
+        shell: pwsh
+        run: |
+          Copy-Item eco-source/README.md,eco-source/ECOSYSTEM_ROADMAP.md,eco-source/FUTURE_ECOSYSTEM_GOAL.md,eco-source/ecosystem.lock.json materialized/ -Force
+          Copy-Item eco-source/scripts materialized/scripts -Recurse -Force
+          ./materialized/scripts/check-ecosystem.ps1

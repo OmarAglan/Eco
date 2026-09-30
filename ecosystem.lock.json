@@ -1,15 +1,59 @@
 {
   "schema_version": "eco-lock-v1",
   "snapshot_date": "2026-09-10",
+  "milestones": [
+    {
+      "id": "E0",
+      "title": "Contract reconciliation",
+      "state": "closed"
+    },
+    {
+      "id": "E1",
+      "title": "Takween build-system foundation",
+      "state": "closed"
+    },
+    {
+      "id": "E2",
+      "title": "Qalam hosted workflow",
+      "state": "in-progress"
+    },
+    {
+      "id": "E3",
+      "title": "Nazm shadow and parity integration",
+      "state": "closed"
+    },
+    {
+      "id": "E4",
+      "title": "Local packages before a public registry",
+      "state": "in-progress"
+    },
+    {
+      "id": "E5",
+      "title": "PyramidOS mixed-build experiment",
+      "state": "not-started"
+    },
+    {
+      "id": "E6",
+      "title": "Pyramid-Engine Baa scripting experiment",
+      "state": "in-progress"
+    }
+  ],
+
   "policy": "contract-compatibility-not-repository-lockstep",
   "projects": [
     {
       "id": "baa",
       "path": "Baa",
+      "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
       "revision": "e330a81539dc23faf778859e73ae0dfc8e816102",
       "role": "language-compiler-stdlib-contract-owner",
+      "pending_gates": [
+        "Cross-platform CI receipt for the pinned revision",
+        "Clean-machine release gate"
+      ],
+
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
@@ -33,10 +77,16 @@
     {
       "id": "nazm",
       "path": "Nazm",
+      "repository": "OmarAglan/Nazm",
       "version": "0.4.0",
       "version_source": "CMakeLists.txt",
       "revision": "c78c993cfa3523d46d08443599e316a2a1f827ea",
       "role": "assembler-object-writer",
+      "pending_gates": [
+        "Cross-platform CI receipt for the pinned revision",
+        "In-process nazm-api-v1 production admission"
+      ],
+
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
@@ -55,10 +105,15 @@
     {
       "id": "takween",
       "path": "Takween",
+      "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
       "revision": "fa0c4162495267f2679d543bfc55f600719bdd5f",
       "role": "build-dependency-package-workflow",
+      "pending_gates": [
+        "Full Takween suite plus cross-platform CI receipt for the pinned revision"
+      ],
+
       "verification": {
         "state": "local-windows-build-smoke-verified-full-suite-and-ci-pending",
         "receipt": null
@@ -78,10 +133,17 @@
     {
       "id": "qalam",
       "path": "Qalam-IDE",
+      "repository": "OmarAglan/Qalam-IDE",
       "version": "3.6.0",
       "version_source": "CMakeLists.txt",
       "revision": "89ae7d48677994bb16a8389662c153aaa903d78b",
+      "pin_note": "Frozen deliberately: this revision is the Qalam source pinned by the Baa-Developer-Kit 0.5.0 release candidate (Baa-Developer-Kit/docs/VERIFICATION_STATUS.md). A workspace that advances past it is expected and is not a defect. Re-pin only after kit 0.5.0 ships and both locks move together.",
       "role": "rtl-ide-tooling-client",
+      "pending_gates": [
+        "Linux and clean-machine Windows installer gates",
+        "Cross-platform CI receipt for the pinned revision"
+      ],
+
       "verification": {
         "state": "local-windows-tests-package-verified-manual-and-linux-gates-pending",
         "receipt": null
@@ -109,10 +171,16 @@
     {
       "id": "baa-lsp",
       "path": "Baa-LSP",
+      "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
       "revision": "602cdd406eed61fc75a796ca66680b8e367aad8b",
       "role": "baa-language-server-protocol-adapter",
+      "pending_gates": [
+        "Cross-platform CI receipt for the pinned revision",
+        "Structured logs production admission"
+      ],
+
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
@@ -145,10 +213,17 @@
     {
       "id": "arbsh",
       "path": "ArbSh",
+      "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
       "revision": "4ee9179bb67468f765f0fc745713f29b27afd340",
       "role": "arabic-first-shell-and-terminal-host",
+      "pending_gates": [
+        "Linux process-group CI receipt for the pinned revision",
+        "Interactive PTY host and arbsh-host-v1 freeze",
+        "Standalone installer lifecycle gate"
+      ],
+
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
@@ -176,10 +251,16 @@
     {
       "id": "baa-developer-kit",
       "path": "Baa-Developer-Kit",
+      "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.5.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
       "revision": "f9ac3db7ddb9c253235f9eef44f3e916fbb8a0b1",
       "role": "offline-installer-orchestrator",
+      "pending_gates": [
+        "Clean-machine all-users installer lifecycle",
+        "Authenticode signing chain"
+      ],
+
       "verification": {
         "state": "local-windows-package-verified-lifecycle-ci-pending",
         "receipt": null
@@ -198,10 +279,16 @@
     {
       "id": "pyramid-engine",
       "path": "Pyramid-Engine",
+      "repository": "RuqoomTech/Pyramid-Engine",
       "version": "0.6.0-pre-alpha",
       "version_source": "CMakeLists.txt",
       "revision": "5b7680d65d448b4bcfde47b32b0247862c4f6702",
       "role": "arabic-capable-native-runtime-and-future-baa-scripting-consumer",
+      "pending_gates": [
+        "Windows vertical slice verification",
+        "Hosted ABI and debugger gates for Baa embedding"
+      ],
+
       "verification": {
         "state": "windows-local-tests-and-visual-typography-verified",
         "receipt": null
@@ -219,10 +306,16 @@
     {
       "id": "pyramidos",
       "path": "PyramidOS",
+      "repository": "RuqoomTech/PyramidOS",
       "version": "0.8.1",
       "version_source": "docs/ROADMAP_L3_TACTICAL.md",
       "revision": "e6f601dcb75d4981a6c785af5e0b5067f1e4f396",
       "role": "deferred-freestanding-consumer",
+      "pending_gates": [
+        "v0.9 boot memory storage and VFS gates",
+        "i386 versus x86-64 target decision"
+      ],
+
       "verification": {
         "state": "deferred-outside-hosted-critical-path",
         "receipt": null

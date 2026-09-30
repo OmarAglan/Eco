@@ -75,12 +75,45 @@ experiment, not a kernel rewrite and not a .NET/Avalonia port of ArbSh.
 From PowerShell:
 
 ```powershell
-.\scripts\check-ecosystem.ps1
+.\scripts\check-ecosystem.ps1            # full gate; needs the nine repositories present
+.\scripts\check-ecosystem.ps1 -LockOnly  # lock and umbrella documents only
+.\scripts\eco-status.ps1                 # local drift: pin vs HEAD, dirty trees, receipts
+.\scripts\check-pinned-revisions.ps1     # does each pin really exist upstream?
+.\scripts\materialize-workspace.ps1      # build a clean workspace from the pins alone
 ```
 
 The check validates repository presence, exact pinned revisions, versions,
-required contract documents, ownership references, and the current integration
-boundary. It does not replace project builds or tests.
+required contract documents, ownership references, milestone states, and the
+current integration boundary. It does not replace project builds or tests. In
+`-LockOnly` mode the member-repository assertions are reported as **skipped**:
+an absent repository is unverified, never a pass.
+
+`.github/workflows/ecosystem-consistency.yml` runs the lock-only gate and the
+upstream pin check on every push and pull request. The full check against a
+materialized workspace is manual (`workflow_dispatch`) because it clones all
+nine pinned revisions and needs `ECOSYSTEM_PAT` to reach private repositories.
+
+### What the lock stores
+
+- `revision` — the exact commit this combination was verified at.
+- `repository` — the `owner/name` repository the pin belongs to.
+- `milestones` — the E0–E6 states. A milestone may be `closed` only while its
+  roadmap section holds no unchecked work items.
+- `verification.receipt` — `null`, or `{ run_url, verified_revision, verified_at }`.
+  A receipt counts only when `verified_revision` equals the pin, so an old green
+  run can never certify a revision that has since moved.
+- `pending_gates` — what remains unproven for that pin. A component without a
+  receipt must name at least one pending gate.
+
+### Drift is a decision, not an error to erase
+
+`eco-status.ps1` separates a straight-line advance from a real divergence. A pin
+can be frozen on purpose: Qalam is pinned at the revision the Baa Developer Kit
+`0.5.0` candidate was cut from, so a workspace ahead of it is expected, and that
+project's `pin_note` records why. `check-ecosystem.ps1` still fails closed until
+someone either re-pins or accepts the combination. The distance between "these
+trees happen to be checked out" and "this combination was verified" is the whole
+purpose of this file.
 
 After building Baa, Qalam with `QALAM_BUILD_TESTS=ON`, Baa-LSP, and optionally
 Nazm, run

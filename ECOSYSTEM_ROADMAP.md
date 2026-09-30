@@ -24,6 +24,14 @@ gates.
    Pyramid-Engine, and PyramidOS use different languages and rendering stacks;
    common Arabic behavior begins as versioned data fixtures and acceptance
    tests rather than forced binary coupling.
+9. **A receipt names a revision or it proves nothing.** `ecosystem.lock.json`
+   records verification as `{ run_url, verified_revision, verified_at }` and
+   accepts it only when the revision equals the pin. Where CI has never run
+   against the pinned commit the receipt stays `null` and the open work is
+   named in `pending_gates`. A local build is never recorded as a receipt.
+10. **A pin may be frozen deliberately.** Drift is reported with its direction
+   by `scripts/eco-status.ps1` and resolved by a recorded decision — never by
+   silently re-pinning to whatever the workspace happens to hold.
 
 ## E0 — Contract reconciliation
 
