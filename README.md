@@ -104,16 +104,28 @@ nine pinned revisions and needs `ECOSYSTEM_PAT` to reach private repositories.
   run can never certify a revision that has since moved.
 - `pending_gates` — what remains unproven for that pin. A component without a
   receipt must name at least one pending gate.
+- `pin_policy` — absent, or `"frozen"`. A frozen pin must carry a `pin_note`
+  saying why it is held back.
 
 ### Drift is a decision, not an error to erase
 
 `eco-status.ps1` separates a straight-line advance from a real divergence. A pin
-can be frozen on purpose: Qalam is pinned at the revision the Baa Developer Kit
-`0.5.0` candidate was cut from, so a workspace ahead of it is expected, and that
-project's `pin_note` records why. `check-ecosystem.ps1` still fails closed until
-someone either re-pins or accepts the combination. The distance between "these
-trees happen to be checked out" and "this combination was verified" is the whole
-purpose of this file.
+can be frozen on purpose: Qalam is pinned at the 3.7.0 revision the Baa
+Developer Kit `0.6.0` candidate packages, so a workspace ahead of it is expected. Its
+`pin_policy` is `"frozen"` and its `pin_note` records why.
+
+`check-ecosystem.ps1` fails on every other drift until someone re-pins. For a
+frozen pin it accepts only a straight-line advance and prints it as accepted
+drift; a divergence or an unreachable pin still fails. Its member-file
+assertions then read the workspace tree, not the frozen revision; the
+materialized-workspace CI job checks the pins themselves. The distance between
+"these trees happen to be checked out" and "this combination was verified" is
+the whole purpose of this file.
+
+Baa, Nazm, and Baa-LSP are pinned one commit past the sources their installers
+were built from. Those commits change only ignore rules and delete two
+prompt-note files from Baa; no build input differs, so kit `0.6.0` reuses the
+same Baa 0.6.0, Nazm 0.4.0, and Takween 0.1.0 installers.
 
 After building Baa, Qalam with `QALAM_BUILD_TESTS=ON`, Baa-LSP, and optionally
 Nazm, run

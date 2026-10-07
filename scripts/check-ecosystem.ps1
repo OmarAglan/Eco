@@ -10,6 +10,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $failures = [System.Collections.Generic.List[string]]::new()
 $skipped = [System.Collections.Generic.List[string]]::new()
+$acceptedDrift = [System.Collections.Generic.List[string]]::new()
 
 $projectScopes = @(
     'Baa',
@@ -137,6 +138,19 @@ if (Test-Path -LiteralPath $lockPath) {
                 }
             }
 
+            # A frozen pin is a recorded decision to keep certifying an older
+            # revision while the workspace moves on. It must say why.
+            $isFrozen = $false
+            if ($null -ne $project.pin_policy) {
+                if ($project.pin_policy -ne 'frozen') {
+                    Add-Failure "Project '$($project.id)' has unsupported pin_policy '$($project.pin_policy)'; the only accepted value is 'frozen'"
+                } elseif ([string]::IsNullOrWhiteSpace($project.pin_note)) {
+                    Add-Failure "Project '$($project.id)' declares pin_policy 'frozen' without a pin_note recording why"
+                } else {
+                    $isFrozen = $true
+                }
+            }
+
             Require-Path $project.path
             Require-Path (Join-Path $project.path $project.version_source)
 
@@ -156,6 +170,7 @@ if (Test-Path -LiteralPath $lockPath) {
                     Add-Failure "Could not read Git revision for project '$($project.id)'"
                 } elseif ($actualRevision -ne $project.revision) {
                     $shape = "the pinned revision is not reachable from this clone"
+                    $straightLine = $false
                     & git -C $projectPath cat-file -t $project.revision 1>$null 2>$null
                     if ($LASTEXITCODE -eq 0) {
                         $counts = & git -C $projectPath rev-list --left-right --count "$($project.revision)...$actualRevision" 2>$null
@@ -166,8 +181,16 @@ if (Test-Path -LiteralPath $lockPath) {
                             $shape = "workspace is $ahead commit(s) ahead of the pin and $behind behind"
                             if ($behind -eq '0') {
                                 $shape = "$shape (straight-line advance, not a divergence)"
+                                $straightLine = $true
                             }
                         }
+                    }
+
+                    # Only a straight-line advance past a frozen pin is accepted.
+                    # A divergence or an unreachable pin still fails closed.
+                    if ($isFrozen -and $straightLine) {
+                        $acceptedDrift.Add("Project '$($project.id)' frozen at $($project.revision): $shape")
+                        continue
                     }
 
                     $note = ''
@@ -239,11 +262,11 @@ if (Test-Path -LiteralPath $lockPath) {
 
 Require-Match 'Baa/CMakeLists.txt' 'project\(baa VERSION 0\.6\.0' 'Baa 0.6.0 version'
 Require-Match 'Nazm/CMakeLists.txt' 'VERSION 0\.4\.0' 'Nazm 0.4.0 version'
-Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.6\.0' 'Qalam 3.6.0 version'
+Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.7\.0' 'Qalam 3.7.0 version'
 Require-Match 'Baa-LSP/CMakeLists.txt' 'project\(BaaLSP VERSION 0\.1\.0' 'Baa-LSP 0.1.0 version'
 Require-Match 'Takween/scripts/build_takween.ps1' '\$Version = "0\.1\.0"' 'Takween 0.1.0 version'
 Require-Match 'ArbSh/README.md' 'Current Version:\*\* 0\.8\.1-alpha' 'ArbSh 0.8.1-alpha version'
-Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.5\.0'" 'Baa Developer Kit 0.5.0 version'
+Require-Match 'Baa-Developer-Kit/scripts/Build-DeveloperKitInstaller.ps1' "ReleaseVersion = '0\.6\.0'" 'Baa Developer Kit 0.6.0 version'
 Require-Match 'Pyramid-Engine/CMakeLists.txt' 'project\(Pyramid VERSION 0\.6\.0' 'Pyramid Engine 0.6.0 version'
 Require-Match 'PyramidOS/docs/ROADMAP_L3_TACTICAL.md' 'Current Kernel:\*\* v0\.8\.1' 'PyramidOS 0.8.1 baseline'
 
@@ -330,6 +353,10 @@ Require-Match 'ArbSh/docs/ARBSH_HOST_V1.md' 'arbsh-host-v1' 'ArbSh host contract
 Require-Match 'ECOSYSTEM_ROADMAP.md' 'eco-arabic-text-corpus-v1' 'shared Arabic interaction corpus plan'
 Require-Match 'Pyramid-Engine/docs/ROADMAP.md' 'Baa scripting admission gate' 'Pyramid Engine Baa scripting boundary'
 Require-Match 'PyramidOS/docs/BAA_TAKWEEN_OS_INTEGRATION_PLAN.md' 'i386/ELF32' 'Nazm target-strategy gap recorded in PyramidOS plan'
+
+foreach ($accepted in $acceptedDrift) {
+    Write-Host "Accepted drift: $accepted. Member-file assertions for it read the workspace tree, not the frozen pin." -ForegroundColor Yellow
+}
 
 if ($failures.Count -gt 0) {
     Write-Host "Eco consistency check failed ($($failures.Count) issue(s)):" -ForegroundColor Red

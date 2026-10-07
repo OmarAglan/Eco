@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     # Exit with code 1 when any project has moved off its pin. Off by default:
-    # drift is a decision to make, not automatically a defect (see pin_note).
+    # drift is a decision to make, not automatically a defect (see pin_policy).
     [switch]$FailOnDrift
 )
 
@@ -48,6 +48,9 @@ foreach ($project in $lock.projects) {
             $ahead = [int]$sides[1]
             if ($behind -eq 0) {
                 $state = "AHEAD +$ahead"
+                if ($project.pin_policy -eq 'frozen') {
+                    $state = "$state (frozen)"
+                }
             } else {
                 $state = "DIVERGED +$ahead/-$behind"
             }
@@ -72,8 +75,10 @@ $withoutReceipt = @($lock.projects | Where-Object { $null -eq $_.verification.re
 Write-Host "Pins matched: $matched | off-pin: $drifting | projects with no CI receipt: $($withoutReceipt.Count)/$($lock.projects.Count)"
 
 foreach ($project in $lock.projects) {
-    if ($project.pin_note) {
-        Write-Host "$($project.id) pin is deliberate: $($project.pin_note)" -ForegroundColor DarkYellow
+    if ($project.pin_policy -eq 'frozen') {
+        Write-Host "$($project.id) pin is frozen: $($project.pin_note)" -ForegroundColor DarkYellow
+    } elseif ($project.pin_note) {
+        Write-Host "$($project.id) pin note: $($project.pin_note)" -ForegroundColor DarkYellow
     }
 }
 
