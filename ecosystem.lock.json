@@ -50,13 +50,16 @@
       "revision": "e495411a6e65d2aff12b97c5ce80fa43d5f9b369",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
-        "Cross-platform CI receipt for the pinned revision",
         "Clean-machine release gate"
       ],
 
       "verification": {
-        "state": "local-windows-verified-cross-platform-ci-pending",
-        "receipt": null
+        "state": "cross-platform-ci-verified-clean-machine-release-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/36692296459",
+          "verified_revision": "e495411a6e65d2aff12b97c5ce80fa43d5f9b369",
+          "verified_at": "2026-09-30"
+        }
       },
       "provides": [
         "compiler-cli-v1-cross-platform-verified",
