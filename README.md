@@ -7,21 +7,22 @@ Eco is the integration workspace for nine independently released projects:
 | [Baa](https://github.com/OmarAglan/Baa) | Arabic-first systems language, reference compiler, standard library, and tooling contracts | 0.6.0 |
 | [Nazm](https://github.com/OmarAglan/Nazm) | Arabic-first x86-64 assembler and ELF64/COFF object writer | 0.4.0 |
 | [Takween](https://github.com/OmarAglan/Takween) | Project build, run, test, dependency, and package workflow | 0.1.0 |
-| [Qalam-IDE](https://github.com/OmarAglan/Qalam-IDE) | RTL-first editor and graphical tooling client | 3.6.0 |
+| [Qalam-IDE](https://github.com/OmarAglan/Qalam-IDE) | RTL-first editor and graphical tooling client | 3.7.0 |
 | [Baa-LSP](https://github.com/OmarAglan/Baa-LSP) | Baa-only Language Server Protocol adapter between editors and the reference compiler | 0.1.0 preview |
 | [ArbSh](https://github.com/RuqoomTech/ArbSh) | Arabic-first shell and standalone terminal host | 0.8.1-alpha |
-| [Baa-Developer-Kit](https://github.com/OmarAglan/Baa-Developer-Kit) | Offline installer orchestration and release manifest owner | 0.5.0 local candidate |
+| [Baa-Developer-Kit](https://github.com/OmarAglan/Baa-Developer-Kit) | Offline installer orchestration and release manifest owner | 0.6.0 candidate |
 | [Pyramid-Engine](https://github.com/RuqoomTech/Pyramid-Engine) | Arabic-capable native runtime and future Baa scripting consumer | 0.6.0-pre-alpha |
 | [PyramidOS](https://github.com/RuqoomTech/PyramidOS) | Experimental freestanding consumer and long-term systems testbed | 0.8.1 baseline |
 
 The projects remain separate repositories. This directory owns only their shared
 compatibility snapshot, integration roadmap, and cross-project verification.
 
-The 0.5.0 kit snapshot includes the refreshed installer presentation and logs,
-with Qalam 3.6.0. Its [verification record](https://github.com/OmarAglan/Baa-Developer-Kit/blob/main/docs/VERIFICATION_STATUS.md)
-separates completed local checks from the remaining Qalam visual/Linux gates,
-Takween full-suite verification, and clean Windows installer lifecycle checks.
-The pinned source revisions do not by themselves establish release readiness.
+The 0.6.0 kit candidate packages Qalam 3.7.0 and builds every component
+installer from the revisions this lock pins, each with a green Windows and
+Linux CI run. Its [verification record](https://github.com/OmarAglan/Baa-Developer-Kit/blob/main/docs/VERIFICATION_STATUS.md)
+lists those runs and separates them from what remains: Qalam's Linux
+installer and manual visual review, and Authenticode signing. The pinned source
+revisions do not by themselves establish release readiness.
 
 ## Intended hosted workflow
 
@@ -122,14 +123,14 @@ materialized-workspace CI job checks the pins themselves. The distance between
 "these trees happen to be checked out" and "this combination was verified" is
 the whole purpose of this file.
 
-Baa, Nazm, and Baa-LSP are pinned one commit past the sources their installers
-were built from. Those commits change only ignore rules and delete two
-prompt-note files from Baa; no build input differs, so kit `0.6.0` reuses the
-same Baa 0.6.0, Nazm 0.4.0, and Takween 0.1.0 installers.
+The kit's CI checks out the same Baa, Nazm, Takween, Qalam, and Baa-LSP
+revisions this lock pins and builds their installers from them, so the kit's
+receipt and the component receipts describe one combination.
 
-After building Baa, Qalam with `QALAM_BUILD_TESTS=ON`, Baa-LSP, and optionally
-Nazm, run
-the hosted integration receipt:
+After building Baa, Nazm, Qalam with `QALAM_BUILD_TESTS=ON`, and Baa-LSP, run
+the hosted integration receipt. Nazm is required: it is Baa's production
+assembler. The `hosted-golden-path` CI job runs the same script on Linux against
+a fresh build of exactly the pinned revisions.
 
 ```powershell
 .\scripts\test-hosted-ecosystem.ps1 `

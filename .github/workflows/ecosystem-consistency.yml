@@ -39,6 +39,73 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./scripts/check-pinned-revisions.ps1
 
+  # Release rule 4: the golden hosted workflow must pass at exactly the pinned
+  # combination. Builds the pins from source rather than reusing any
+  # workspace artifact, so a green run is a receipt for the lock itself.
+  hosted-golden-path:
+    name: Hosted golden path at the pinned combination (Linux)
+    needs: lock-and-docs
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: eco-source
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build dependencies and Qt 6.10.2
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake \
+            libgl1-mesa-dev libxkbcommon-dev libxcb-cursor0 libxcb-cursor-dev
+          python -m pip install aqtinstall
+          python -m aqt install-qt -O "$RUNNER_TEMP/Qt" linux desktop 6.10.2 linux_gcc_64
+          echo "ECO_QT_DIR=$RUNNER_TEMP/Qt/6.10.2/gcc_64" >> "$GITHUB_ENV"
+
+      - name: Materialize the nine pinned revisions
+        shell: pwsh
+        env:
+          ECOSYSTEM_PAT: ${{ secrets.ECOSYSTEM_PAT }}
+        run: |
+          ./eco-source/scripts/materialize-workspace.ps1 -TargetRoot materialized -Force
+          Copy-Item eco-source/README.md,eco-source/ECOSYSTEM_ROADMAP.md,eco-source/FUTURE_ECOSYSTEM_GOAL.md,eco-source/ecosystem.lock.json materialized/ -Force
+          Copy-Item eco-source/scripts materialized/scripts -Recurse -Force
+
+      - name: Build Baa, Nazm, Takween, Qalam, and Baa-LSP at the pins
+        working-directory: materialized
+        run: |
+          jobs=$(nproc)
+          cmake -S Baa -B Baa/build-eco -DCMAKE_BUILD_TYPE=Release
+          cmake --build Baa/build-eco --parallel "$jobs"
+          cmake -S Nazm -B Nazm/build-eco -DCMAKE_BUILD_TYPE=Release
+          cmake --build Nazm/build-eco --parallel "$jobs"
+          export BAA_NAZM="$PWD/Nazm/build-eco/nazm" NAZM="$PWD/Nazm/build-eco/nazm"
+          pwsh ./Takween/scripts/build_takween.ps1 \
+            -BaaPath "$PWD/Baa/build-eco/baa" -BaaStdlibPath "$PWD/Baa/stdlib"
+          cmake -S Qalam-IDE -B Qalam-IDE/build-eco -DCMAKE_BUILD_TYPE=Release \
+            -DQALAM_BUILD_TESTS=ON -DCMAKE_PREFIX_PATH="$ECO_QT_DIR"
+          cmake --build Qalam-IDE/build-eco --parallel "$jobs"
+          cmake -S Baa-LSP -B Baa-LSP/build-eco -DCMAKE_BUILD_TYPE=Release \
+            -DBAA_LSP_BUILD_TESTS=ON \
+            -DBAA_LSP_BAA_EXECUTABLE="$PWD/Baa/build-eco/baa" \
+            -DBAA_LSP_TAKWEEN_EXECUTABLE="$PWD/Takween/dist/bin/takween"
+          cmake --build Baa-LSP/build-eco --parallel "$jobs"
+
+      - name: Run the hosted golden path
+        shell: pwsh
+        working-directory: materialized
+        env:
+          PYTHONUTF8: '1'
+        run: |
+          ./scripts/test-hosted-ecosystem.ps1 `
+            -BaaPath ./Baa/build-eco/baa `
+            -QalamBuildDir Qalam-IDE/build-eco `
+            -BaaLspBuildDir Baa-LSP/build-eco `
+            -NazmPath ./Nazm/build-eco/nazm `
+            -NazmBuildDir Nazm/build-eco
+
   materialized-combination:
     name: Full check at the pinned combination
     if: ${{ github.event_name == 'workflow_dispatch' }}

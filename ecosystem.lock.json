@@ -38,7 +38,6 @@
       "state": "in-progress"
     }
   ],
-
   "policy": "contract-compatibility-not-repository-lockstep",
   "projects": [
     {
@@ -47,17 +46,16 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "f2c0fbc2c365eede33d98d7438764cafe0d0a19c",
+      "revision": "276a594491a4b08fed1b2ceca5fd3fc65bb5dad1",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Clean-machine release gate"
       ],
-
       "verification": {
         "state": "cross-platform-ci-verified-clean-machine-release-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/37754136361",
-          "verified_revision": "f2c0fbc2c365eede33d98d7438764cafe0d0a19c",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/37763756703",
+          "verified_revision": "276a594491a4b08fed1b2ceca5fd3fc65bb5dad1",
           "verified_at": "2026-10-08"
         }
       },
@@ -88,7 +86,6 @@
       "pending_gates": [
         "In-process nazm-api-v1 production admission"
       ],
-
       "verification": {
         "state": "cross-platform-ci-verified-in-process-admission-pending",
         "receipt": {
@@ -114,15 +111,18 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "fa0c4162495267f2679d543bfc55f600719bdd5f",
+      "revision": "4433a120dd80b61b59f69a0a6cc370f462de8e7e",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
-        "Full Takween suite plus cross-platform CI receipt for the pinned revision"
+        "Arabic package commands, NFC package identity, and namespaces"
       ],
-
       "verification": {
-        "state": "local-windows-build-smoke-verified-full-suite-and-ci-pending",
-        "receipt": null
+        "state": "cross-platform-ci-full-suite-verified-package-milestone-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/37763788451",
+          "verified_revision": "4433a120dd80b61b59f69a0a6cc370f462de8e7e",
+          "verified_at": "2026-10-08"
+        }
       },
       "provides": [
         "takween-cli-v0",
@@ -142,18 +142,20 @@
       "repository": "OmarAglan/Qalam-IDE",
       "version": "3.7.0",
       "version_source": "CMakeLists.txt",
-      "revision": "fe30d08a3d253d474d37c94e452daed5e83d0b54",
+      "revision": "f682bd9d0a25412bca1281b98d3f1d87d03dd7da",
       "pin_policy": "frozen",
       "pin_note": "Frozen deliberately: this revision is the Qalam 3.7.0 source packaged by the Baa-Developer-Kit 0.6.0 release candidate (Baa-Developer-Kit/docs/VERIFICATION_STATUS.md). A workspace that advances past it is expected and is not a defect. Re-pin only when a new kit candidate packages a newer Qalam, moving both pins together.",
       "role": "rtl-ide-tooling-client",
       "pending_gates": [
-        "Linux and clean-machine Windows installer gates",
-        "Cross-platform CI receipt for the pinned revision"
+        "Linux installer and manual visual-review gates"
       ],
-
       "verification": {
-        "state": "local-windows-tests-package-verified-manual-and-linux-gates-pending",
-        "receipt": null
+        "state": "cross-platform-ci-verified-linux-installer-and-visual-gates-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Qalam-IDE/actions/runs/37763803691",
+          "verified_revision": "f682bd9d0a25412bca1281b98d3f1d87d03dd7da",
+          "verified_at": "2026-10-08"
+        }
       },
       "provides": [
         "qalam-ui-v3",
@@ -183,16 +185,18 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "90c8007105f97eea9330159ed67aa3a4becbcbf3",
+      "revision": "d44b5ade67416d19dc4299c103e10887c90bf648",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
-        "Cross-platform CI receipt for the pinned revision",
         "Structured logs production admission"
       ],
-
       "verification": {
-        "state": "local-windows-verified-cross-platform-ci-pending",
-        "receipt": null
+        "state": "cross-platform-ci-verified-structured-log-admission-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/37763795572",
+          "verified_revision": "d44b5ade67416d19dc4299c103e10887c90bf648",
+          "verified_at": "2026-10-08"
+        }
       },
       "provides": [
         "baa-lsp-v0.1-cross-platform-real-process-verified",
@@ -232,7 +236,6 @@
         "Interactive PTY host and arbsh-host-v1 freeze",
         "Standalone installer lifecycle gate"
       ],
-
       "verification": {
         "state": "local-windows-verified-cross-platform-ci-pending",
         "receipt": null
@@ -263,20 +266,23 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "b539ba0c820fb23c55e43470e114b573c799bdf9",
+      "revision": "4d3e756888f41b9029e19fc79beccfe377ff9ee4",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
-        "Clean-machine all-users installer lifecycle",
         "Authenticode signing chain"
       ],
-
       "verification": {
-        "state": "local-windows-package-verified-lifecycle-ci-pending",
-        "receipt": null
+        "state": "windows-ci-lifecycle-verified-signing-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/37769971047",
+          "verified_revision": "4d3e756888f41b9029e19fc79beccfe377ff9ee4",
+          "verified_at": "2026-10-08"
+        }
       },
       "provides": [
         "eco-installer-manifest-v1-local-windows-verified",
-        "baa-developer-kit-installer-v0.6-local-build-verified"
+        "baa-developer-kit-installer-v0.6-local-build-verified",
+        "baa-developer-kit-installer-v0.6-ci-clean-runner-lifecycle-verified"
       ],
       "consumes": [
         "nazm-installer-v0.4",
@@ -297,7 +303,6 @@
         "Windows vertical slice verification",
         "Hosted ABI and debugger gates for Baa embedding"
       ],
-
       "verification": {
         "state": "windows-local-tests-and-visual-typography-verified",
         "receipt": null
@@ -324,7 +329,6 @@
         "v0.9 boot memory storage and VFS gates",
         "i386 versus x86-64 target decision"
       ],
-
       "verification": {
         "state": "deferred-outside-hosted-critical-path",
         "receipt": null

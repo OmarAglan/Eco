@@ -384,7 +384,10 @@ not a second owner of their installed files.
       ordering, health checks, and Qalam-owned Baa-LSP recording.
 - [x] Prove current-user install, real upgrade, repair, health checks, and clean
       uninstall locally for the 0.2.0 kit.
-- [ ] Pass the all-users `Program Files` lifecycle on a clean Windows worker.
+- [x] Pass the all-users `Program Files` lifecycle on a clean Windows worker.
+      Kit `4d3e756`, CI run 37769971047 (2026-10-08): isolated per-user and
+      all-users machine-PATH install, repair, runtime, and uninstall on a
+      fresh `windows-latest` runner.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
 - [ ] Add ArbSh as an independently owned component only after E2.2's
       standalone installer gate passes.

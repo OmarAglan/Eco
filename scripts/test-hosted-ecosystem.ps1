@@ -7,7 +7,11 @@ param(
     [string]$QalamBuildDir,
 
     [string]$BaaLspBuildDir = "",
-    [string]$NazmPath = "",
+
+    # Nazm is Baa's production assembler, so every hosted build needs it.
+    [Parameter(Mandatory = $true)]
+    [string]$NazmPath,
+
     [string]$NazmBuildDir = "",
     [string[]]$RuntimeBin = @()
 )
@@ -45,9 +49,7 @@ function Find-BaaStdlib([string]$CompilerPath) {
 try {
     $resolvedBaa = (Get-Command $BaaPath -ErrorAction Stop).Source
     $resolvedQalamBuild = (Resolve-Path -LiteralPath $QalamBuildDir).Path
-    $resolvedNazm = if ($NazmPath) {
-        (Get-Command $NazmPath -ErrorAction Stop).Source
-    } else { "" }
+    $resolvedNazm = (Get-Command $NazmPath -ErrorAction Stop).Source
     $resolvedBaaLspBuild = if ($BaaLspBuildDir) {
         (Resolve-Path -LiteralPath $BaaLspBuildDir).Path
     } else { "" }
@@ -56,10 +58,8 @@ try {
     $env:PATH = (($runtimeParts + $oldPath) -join [IO.Path]::PathSeparator)
     $env:BAA = $resolvedBaa
     $env:BAA_STDLIB = Find-BaaStdlib $resolvedBaa
-    if ($resolvedNazm) {
-        $env:BAA_NAZM = $resolvedNazm
-        $env:NAZM = $resolvedNazm
-    }
+    $env:BAA_NAZM = $resolvedNazm
+    $env:NAZM = $resolvedNazm
     $env:QT_QPA_PLATFORM = 'offscreen'
 
     Invoke-Step 'Eco contract consistency' {
@@ -68,12 +68,12 @@ try {
 
     Invoke-Step 'Baa quick QA' {
         Push-Location (Join-Path $root 'Baa')
-        try { python scripts\qa_run.py --mode quick } finally { Pop-Location }
+        try { python (Join-Path 'scripts' 'qa_run.py') --mode quick } finally { Pop-Location }
     }
 
     Invoke-Step 'Takween hosted smoke' {
         Push-Location (Join-Path $root 'Takween')
-        try { & .\scripts\test_takween.ps1 -BaaPath $resolvedBaa } finally { Pop-Location }
+        try { & ./scripts/test_takween.ps1 -BaaPath $resolvedBaa -NazmPath $resolvedNazm } finally { Pop-Location }
     }
 
     if ($IsWindows -or $env:OS -eq 'Windows_NT') {
