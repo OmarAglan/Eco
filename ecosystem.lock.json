@@ -47,7 +47,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "e495411a6e65d2aff12b97c5ce80fa43d5f9b369",
+      "revision": "f2c0fbc2c365eede33d98d7438764cafe0d0a19c",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Clean-machine release gate"
@@ -56,9 +56,9 @@
       "verification": {
         "state": "cross-platform-ci-verified-clean-machine-release-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/36692296459",
-          "verified_revision": "e495411a6e65d2aff12b97c5ce80fa43d5f9b369",
-          "verified_at": "2026-09-30"
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/37754136361",
+          "verified_revision": "f2c0fbc2c365eede33d98d7438764cafe0d0a19c",
+          "verified_at": "2026-10-08"
         }
       },
       "provides": [
@@ -83,16 +83,19 @@
       "repository": "OmarAglan/Nazm",
       "version": "0.4.0",
       "version_source": "CMakeLists.txt",
-      "revision": "4e5997438933c38db70463f3f49dea96074982fd",
+      "revision": "42380994625f142fbcfdff92421da2d3f1e8df2f",
       "role": "assembler-object-writer",
       "pending_gates": [
-        "Cross-platform CI receipt for the pinned revision",
         "In-process nazm-api-v1 production admission"
       ],
 
       "verification": {
-        "state": "local-windows-verified-cross-platform-ci-pending",
-        "receipt": null
+        "state": "cross-platform-ci-verified-in-process-admission-pending",
+        "receipt": {
+          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/37634083242",
+          "verified_revision": "42380994625f142fbcfdff92421da2d3f1e8df2f",
+          "verified_at": "2026-10-07"
+        }
       },
       "provides": [
         "nazm-cli-v0",
