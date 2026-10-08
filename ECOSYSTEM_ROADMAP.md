@@ -228,8 +228,15 @@ duplicating shell parsing or build semantics inside the IDE.
       Arabic command catalog, and gate every command/parameter against missing
       Arabic metadata plus smoke execution. All 175 ArbSh tests pass locally on
       Windows at revision `4ee9179bb67468f765f0fc745713f29b27afd340`.
-- [ ] Obtain the Linux CI receipt for those process-group gates; macOS retains
-      the visible transitional .NET tree-kill mode.
+- [x] Obtain the Linux CI receipt for those process-group gates; macOS retains
+      the visible transitional .NET tree-kill mode. All 175 ArbSh tests pass on
+      both Windows and Ubuntu in
+      [run 37796006742](https://github.com/RuqoomTech/ArbSh/actions/runs/37796006742)
+      at revision `15b9dbbb6eee4d6bfc4c9e3b739897fe917b2b29`, with Linux
+      asserting `setsid` process-group ownership for cancellation and
+      normal-root-exit descendant cleanup. The run also fixes the one failing
+      Linux test, which marked a file hidden by attribute rather than by the
+      POSIX leading dot.
 - [x] Polish the standalone terminal with Arabic application chrome and icon,
       a compact live working-directory panel, execution status, shortcut hints,
       larger typography, and focused GUI model tests.

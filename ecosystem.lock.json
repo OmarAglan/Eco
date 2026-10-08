@@ -229,16 +229,19 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "4ee9179bb67468f765f0fc745713f29b27afd340",
+      "revision": "15b9dbbb6eee4d6bfc4c9e3b739897fe917b2b29",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
-        "Linux process-group CI receipt for the pinned revision",
         "Interactive PTY host and arbsh-host-v1 freeze",
         "Standalone installer lifecycle gate"
       ],
       "verification": {
-        "state": "local-windows-verified-cross-platform-ci-pending",
-        "receipt": null
+        "state": "cross-platform-ci-verified-pty-host-and-installer-pending",
+        "receipt": {
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/37796006742",
+          "verified_revision": "15b9dbbb6eee4d6bfc4c9e3b739897fe917b2b29",
+          "verified_at": "2026-10-08"
+        }
       },
       "provides": [
         "arbsh-core-v0.8-preview",
@@ -247,7 +250,7 @@
         "arbsh-structured-process-v1-preview-local-windows-verified",
         "arbsh-external-command-v1-preview-local-windows-verified",
         "arbsh-windows-job-tree-v1-preview-local-verified",
-        "arbsh-posix-process-group-v1-preview-implemented-ci-pending",
+        "arbsh-posix-process-group-v1-preview-linux-ci-verified",
         "arbsh-live-output-v1-preview-local-windows-verified",
         "arbsh-arabic-command-catalog-v1-preview-local-windows-verified",
         "arbsh-accessible-terminal-zoom-v1-preview-local-windows-verified",
