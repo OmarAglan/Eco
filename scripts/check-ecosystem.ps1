@@ -340,6 +340,39 @@ Require-Match 'Qalam-IDE/documents/WORKBENCH_EVOLUTION_AR.md' 'المرحلة ب
 Require-Match 'Qalam-IDE/tests/CMakeLists.txt' 'TestEditorWorkspace\.cpp' 'Qalam shared editor workspace tests'
 Require-Match 'Qalam-IDE/tests/CMakeLists.txt' 'TestWelcomePage\.cpp' 'Qalam recent-project welcome tests'
 Require-Match 'Baa-LSP/tests/CMakeLists.txt' '--unset=PATH' 'Baa-LSP deterministic Windows test runtime'
+Require-Match 'Baa-LSP/tests/CMakeLists.txt' 'TestLogContract\.py' 'Baa-LSP structured log catalogue contract test'
+if (-not $LockOnly) {
+    # baa-lsp-log-v1 is a closed event set: the server's catalogue and the
+    # events Qalam presents in Arabic must be the same set, in both directions.
+    $logCatalogue = Join-Path $root 'Baa-LSP/docs/baa-lsp-log-v1.json'
+    $logPresenter = Join-Path $root 'Qalam-IDE/source/language/BaaLogEvent.cpp'
+    if (-not (Test-Path -LiteralPath $logCatalogue)) {
+        Add-Failure 'Missing Baa-LSP structured log catalogue: Baa-LSP/docs/baa-lsp-log-v1.json'
+    } elseif (-not (Test-Path -LiteralPath $logPresenter)) {
+        Add-Failure 'Missing Qalam structured log presenter: Qalam-IDE/source/language/BaaLogEvent.cpp'
+    } else {
+        $catalogue = Get-Content -Raw -Encoding utf8 -LiteralPath $logCatalogue | ConvertFrom-Json
+        $catalogued = @($catalogue.events | ForEach-Object { $_.event })
+        $presenterSource = Get-Content -Raw -Encoding utf8 -LiteralPath $logPresenter
+        $presented = @([regex]::Matches($presenterSource, 'event == QStringLiteral\("([a-z0-9.-]+)"\)') |
+            ForEach-Object { $_.Groups[1].Value })
+        if ($catalogue.schema -ne 'baa-lsp-log-v1' -or $catalogued.Count -eq 0) {
+            Add-Failure 'Baa-LSP structured log catalogue does not declare baa-lsp-log-v1 events'
+        }
+        foreach ($event in $catalogued) {
+            if ($presented -notcontains $event) {
+                Add-Failure "Qalam does not present the catalogued baa-lsp-log-v1 event '$event'"
+            }
+        }
+        foreach ($event in $presented) {
+            if ($catalogued -notcontains $event) {
+                Add-Failure "Qalam presents '$event', which is not in the baa-lsp-log-v1 catalogue"
+            }
+        }
+    }
+} else {
+    $skipped.Add('Baa-LSP log catalogue / Qalam presenter event-set equality')
+}
 if ($takweenPackages) {
     Require-AbsoluteMatch $takweenPackages.FullName 'takween-index-v1' 'Takween local package index contract'
     Require-AbsoluteMatch $takweenPackages.FullName '--locked' 'Takween immutable lock verification contract'

@@ -159,6 +159,14 @@ passed in
 [run 31509433467](https://github.com/OmarAglan/Qalam-IDE/actions/runs/31509433467).
 Structured logs remain production-admission work.
 
+**Structured log admission progress (2026-10-10):** Baa-LSP `a0a39a2` freezes
+the 16 `baa-lsp-log-v1` events in an installed catalogue, binds every server
+log call site to it, and requires every event sent by the real server with
+real Baa and Takween to be a catalogued one; Windows and Linux passed in
+[run 38052093589](https://github.com/OmarAglan/Baa-LSP/actions/runs/38052093589).
+The Eco full check now requires Qalam's Arabic presenter and the catalogue to
+hold the same event set. The admission stays open until it is formally closed.
+
 **Inlay and self-contained tooling receipt (2026-08-12):** Baa's compiler-owned
 contract passed on Windows/Linux in
 [run 31588302507](https://github.com/OmarAglan/Baa/actions/runs/31588302507).
@@ -395,6 +403,9 @@ not a second owner of their installed files.
       Kit `4d3e756`, CI run 37769971047 (2026-10-08): isolated per-user and
       all-users machine-PATH install, repair, runtime, and uninstall on a
       fresh `windows-latest` runner.
+      Rebuilt at the current pins (Nazm `14c6cf4`, Baa `246ed36`, Takween
+      `1f25f86`, Baa-LSP `d2eabdc`, Qalam `f682bd9`): Kit `639404c`, CI run
+      38051624676 (2026-10-10), same per-user and all-users lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run

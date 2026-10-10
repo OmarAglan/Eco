@@ -185,7 +185,7 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "d2eabdc5c02915fa730ee20d7e06333dedbc44cc",
+      "revision": "a0a39a2d89962347da72da37103a1ff5428c2355",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
         "Structured logs production admission"
@@ -193,8 +193,8 @@
       "verification": {
         "state": "cross-platform-ci-verified-structured-log-admission-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38050805165",
-          "verified_revision": "d2eabdc5c02915fa730ee20d7e06333dedbc44cc",
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38052093589",
+          "verified_revision": "a0a39a2d89962347da72da37103a1ff5428c2355",
           "verified_at": "2026-10-10"
         }
       },
@@ -269,7 +269,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "4d3e756888f41b9029e19fc79beccfe377ff9ee4",
+      "revision": "639404ccf2cae01848a351ab05225b9f26fc8e80",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -277,9 +277,9 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/37769971047",
-          "verified_revision": "4d3e756888f41b9029e19fc79beccfe377ff9ee4",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38051624676",
+          "verified_revision": "639404ccf2cae01848a351ab05225b9f26fc8e80",
+          "verified_at": "2026-10-10"
         }
       },
       "provides": [
