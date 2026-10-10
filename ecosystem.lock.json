@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "145c6896910d178aa41500f1d85108f8c2c9ec10",
+      "revision": "8606d372cf1c57efa1622ee1bf8f9a0e010cc792",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,8 +54,8 @@
       "verification": {
         "state": "cross-platform-ci-and-clean-machine-release-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38059015369",
-          "verified_revision": "145c6896910d178aa41500f1d85108f8c2c9ec10",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38060416686",
+          "verified_revision": "8606d372cf1c57efa1622ee1bf8f9a0e010cc792",
           "verified_at": "2026-10-10"
         }
       },
@@ -84,10 +84,10 @@
       "revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
       "role": "assembler-object-writer",
       "pending_gates": [
-        "In-process nazm-api-v1 production admission"
+        "Allocation-failure injection for every low-level allocation behind nazm-api-v1"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-embedded-step-1-admitted-release-default-pending",
+        "state": "cross-platform-ci-verified-embedded-release-default-admitted",
         "receipt": {
           "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38049146917",
           "verified_revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
@@ -96,7 +96,7 @@
       },
       "provides": [
         "nazm-cli-v0",
-        "nazm-api-v1-opt-in",
+        "nazm-api-v1-embedded-release-default",
         "nazm-source-v0.4",
         "elf64-object-v0",
         "coff-object-v0"
@@ -111,7 +111,7 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "1f25f867eab988ca8c06ed6af9164c7d73a298be",
+      "revision": "e5c3d04c1384cb90c2c3126b7414c6de9127ec0d",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Arabic package commands, NFC package identity, and namespaces"
@@ -119,8 +119,8 @@
       "verification": {
         "state": "cross-platform-ci-full-suite-verified-package-milestone-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38050807186",
-          "verified_revision": "1f25f867eab988ca8c06ed6af9164c7d73a298be",
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38061825549",
+          "verified_revision": "e5c3d04c1384cb90c2c3126b7414c6de9127ec0d",
           "verified_at": "2026-10-10"
         }
       },
@@ -185,7 +185,7 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "ddb776b7bd834f8348c44b9f2722f7f961509dd1",
+      "revision": "5e3d5c9f3a27b3d96aaecb50d4eef526717440c3",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
         "Incremental document overlays or an in-process Baa frontend API"
@@ -193,8 +193,8 @@
       "verification": {
         "state": "cross-platform-ci-verified-structured-logs-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38056992193",
-          "verified_revision": "ddb776b7bd834f8348c44b9f2722f7f961509dd1",
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38061829714",
+          "verified_revision": "5e3d5c9f3a27b3d96aaecb50d4eef526717440c3",
           "verified_at": "2026-10-10"
         }
       },
@@ -269,7 +269,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "639404ccf2cae01848a351ab05225b9f26fc8e80",
+      "revision": "96b4ddd05dc765fdc203eb731b2061ba2a0d68fb",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -277,8 +277,8 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38051624676",
-          "verified_revision": "639404ccf2cae01848a351ab05225b9f26fc8e80",
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38062166442",
+          "verified_revision": "96b4ddd05dc765fdc203eb731b2061ba2a0d68fb",
           "verified_at": "2026-10-10"
         }
       },
@@ -470,7 +470,7 @@
     {
       "id": "nazm-api-v1",
       "owner": "nazm",
-      "state": "linked-in-release-builds-opt-in-embedded-default-step-1-verified",
+      "state": "embedded-default-in-baa-release-builds-cross-platform-verified",
       "consumers": [
         "baa"
       ]

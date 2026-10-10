@@ -325,8 +325,8 @@ The currently pinned Baa, Nazm, and Takween heads remain green in
 [Baa 32570639621](https://github.com/OmarAglan/Baa/actions/runs/32570639621),
 [Nazm 32569904579](https://github.com/OmarAglan/Nazm/actions/runs/32569904579),
 and [Takween 32569904685](https://github.com/OmarAglan/Takween/actions/runs/32569904685).
-E3 is closed. The optional in-process `nazm-api-v1` default remains a separate
-future admission decision.
+E3 is closed. The in-process `nazm-api-v1` default was a separate admission
+decision, recorded in the two steps below.
 
 **Embedded default, step 1 (2026-10-10):** Baa `31a1978` links `nazm-api-v1`
 from the pinned Nazm `14c6cf4` into release builds and keeps it opt-in;
@@ -340,8 +340,27 @@ Nazm executable selected in admission run
 [38058138839](https://github.com/OmarAglan/Baa/actions/runs/38058138839); and
 the release-candidate ladder on the shipping configuration in
 [38058141056](https://github.com/OmarAglan/Baa/actions/runs/38058141056).
-No shipped default changed. Step 2, making the embedded assembler the release
-default, is a separate approval; the Developer Kit is rebuilt once after it.
+No shipped default changed in step 1.
+
+**Embedded default, step 2 (2026-10-10):** approved after the step 1 receipts.
+Baa `f73fa4b` builds its release installer and Linux packages with the embedded
+Nazm as the default assembler: `baa --version` reports
+`Embedded Nazm 0.4.0 (14c6cf4...), default`, an installed compiler needs no
+Nazm executable, and the Windows installer no longer asks for one. An explicit
+`--nazm-path` or a non-empty `BAA_NAZM` still selects that executable in a
+separate process, a missing one is exit 4 and never a fallback, and
+`--assembler=gas` stays as the rollback. Evidence on Windows and Linux: the
+clean-machine installer and package gates in `default` mode and the
+integration tests with corpus object-byte parity in
+[Baa CI 38059638256](https://github.com/OmarAglan/Baa/actions/runs/38059638256);
+the release-candidate ladder (34/52/82/83) on the strict default build with
+`BAA_NAZM` unset and no `نظم` on `PATH` in
+[38059645752](https://github.com/OmarAglan/Baa/actions/runs/38059645752); and the
+subprocess ladder (34/52/82/83) of the same commit in admission run
+[38059648700](https://github.com/OmarAglan/Baa/actions/runs/38059648700).
+The standalone `نظم` command keeps shipping as its own tool. Nazm's next gate
+is allocation-failure injection for every low-level allocation behind
+`nazm-api-v1`.
 
 ## E4 — Local packages before a public registry
 
@@ -432,6 +451,11 @@ not a second owner of their installed files.
       Rebuilt at Nazm `14c6cf4`, Baa `246ed36`, Takween
       `1f25f86`, Baa-LSP `d2eabdc`, Qalam `f682bd9`: Kit `639404c`, CI run
       38051624676 (2026-10-10), same per-user and all-users lifecycle.
+      Rebuilt with the embedded Nazm default at Nazm `14c6cf4`, Baa
+      `8606d37`, Takween `e5c3d04`, Baa-LSP `5e3d5c9`, Qalam `f682bd9`: Kit
+      `96b4ddd`, CI run 38062166442 (2026-10-10), same lifecycle; the installed Baa
+      reports the embedded default and builds a program with no Nazm on PATH.
+      Takween and Baa-LSP changed only their CI pin to that Baa.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run
