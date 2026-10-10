@@ -185,16 +185,16 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "a0a39a2d89962347da72da37103a1ff5428c2355",
+      "revision": "ddb776b7bd834f8348c44b9f2722f7f961509dd1",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
-        "Structured logs production admission"
+        "Incremental document overlays or an in-process Baa frontend API"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-structured-log-admission-pending",
+        "state": "cross-platform-ci-verified-structured-logs-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38052093589",
-          "verified_revision": "a0a39a2d89962347da72da37103a1ff5428c2355",
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38056992193",
+          "verified_revision": "ddb776b7bd834f8348c44b9f2722f7f961509dd1",
           "verified_at": "2026-10-10"
         }
       },
@@ -453,7 +453,7 @@
     {
       "id": "baa-lsp-log-v1",
       "owner": "baa-lsp",
-      "state": "telemetry-free-cross-platform-verified",
+      "state": "telemetry-free-production-admitted-cross-platform-verified",
       "consumers": [
         "qalam"
       ]

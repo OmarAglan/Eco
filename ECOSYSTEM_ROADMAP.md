@@ -165,7 +165,18 @@ log call site to it, and requires every event sent by the real server with
 real Baa and Takween to be a catalogued one; Windows and Linux passed in
 [run 38052093589](https://github.com/OmarAglan/Baa-LSP/actions/runs/38052093589).
 The Eco full check now requires Qalam's Arabic presenter and the catalogue to
-hold the same event set. The admission stays open until it is formally closed.
+hold the same event set.
+
+**Structured log admission closed (2026-10-10):** the catalogue, the call-site
+contract, the real-server runtime check and the Qalam cross-check all passed:
+Baa-LSP on Windows and Linux in
+[run 38052093589](https://github.com/OmarAglan/Baa-LSP/actions/runs/38052093589),
+the full Eco check and the hosted golden path at the pinned combination in
+[run 38056873573](https://github.com/OmarAglan/Eco/actions/runs/38056873573).
+Baa-LSP `ddb776b` records the admission and passed both hosts in
+[run 38056992193](https://github.com/OmarAglan/Baa-LSP/actions/runs/38056992193).
+`baa-lsp-log-v1` is admitted for production use; Baa-LSP's open gate is now
+incremental document overlays or an in-process Baa frontend API.
 
 **Inlay and self-contained tooling receipt (2026-08-12):** Baa's compiler-owned
 contract passed on Windows/Linux in
