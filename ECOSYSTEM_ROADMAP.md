@@ -403,9 +403,13 @@ not a second owner of their installed files.
       passed install, compile, run, and removal in run 38045707261. The Linux
       gate found and fixed an installed compiler that could not find its
       standard library and a `.deb` that did not declare its linker.
-- [ ] Give Nazm-assembled Linux objects a non-executable stack marking; the
-      clean-container gate shows `ld` warning that an executable stack is
-      implied on the default assembler path.
+- [x] Give Nazm-assembled Linux objects a non-executable stack marking. Nazm
+      `14c6cf4` (2026-10-10) ends every ELF64 object with an empty
+      `.note.GNU-stack`; its CI links with `ld --fatal-warnings` and requires
+      an `RW` `GNU_STACK` segment (run 38049146917). Baa `388b539` builds with
+      that revision, and its clean-container gate fails on the linker warning
+      for the Nazm and GAS paths (run 38049326563); the release-candidate
+      ladder passed again on both hosts in run 38049343387.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
 - [ ] Add ArbSh as an independently owned component only after E2.2's
       standalone installer gate passes.

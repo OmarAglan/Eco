@@ -46,16 +46,16 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "9d803e7a213f02947efc24556a0faa3a3d1e6428",
+      "revision": "246ed36c353c60be6c3d77e3e11222ea62e2c5c0",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
-        "Non-executable stack for Nazm-assembled Linux objects"
+        "Authenticode-signed Windows installer"
       ],
       "verification": {
-        "state": "cross-platform-ci-and-clean-machine-release-verified-linux-noexecstack-pending",
+        "state": "cross-platform-ci-and-clean-machine-release-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38046584823",
-          "verified_revision": "9d803e7a213f02947efc24556a0faa3a3d1e6428",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38049831053",
+          "verified_revision": "246ed36c353c60be6c3d77e3e11222ea62e2c5c0",
           "verified_at": "2026-10-10"
         }
       },
@@ -81,7 +81,7 @@
       "repository": "OmarAglan/Nazm",
       "version": "0.4.0",
       "version_source": "CMakeLists.txt",
-      "revision": "42380994625f142fbcfdff92421da2d3f1e8df2f",
+      "revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
       "role": "assembler-object-writer",
       "pending_gates": [
         "In-process nazm-api-v1 production admission"
@@ -89,9 +89,9 @@
       "verification": {
         "state": "cross-platform-ci-verified-in-process-admission-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/37634083242",
-          "verified_revision": "42380994625f142fbcfdff92421da2d3f1e8df2f",
-          "verified_at": "2026-10-07"
+          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38049146917",
+          "verified_revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
+          "verified_at": "2026-10-10"
         }
       },
       "provides": [
