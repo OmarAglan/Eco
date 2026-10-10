@@ -46,17 +46,17 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "276a594491a4b08fed1b2ceca5fd3fc65bb5dad1",
+      "revision": "9d803e7a213f02947efc24556a0faa3a3d1e6428",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
-        "Clean-machine release gate"
+        "Non-executable stack for Nazm-assembled Linux objects"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-clean-machine-release-pending",
+        "state": "cross-platform-ci-and-clean-machine-release-verified-linux-noexecstack-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/37763756703",
-          "verified_revision": "276a594491a4b08fed1b2ceca5fd3fc65bb5dad1",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38046584823",
+          "verified_revision": "9d803e7a213f02947efc24556a0faa3a3d1e6428",
+          "verified_at": "2026-10-10"
         }
       },
       "provides": [

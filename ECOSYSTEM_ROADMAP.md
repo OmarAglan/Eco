@@ -395,6 +395,17 @@ not a second owner of their installed files.
       Kit `4d3e756`, CI run 37769971047 (2026-10-08): isolated per-user and
       all-users machine-PATH install, repair, runtime, and uninstall on a
       fresh `windows-latest` runner.
+- [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
+      (2026-10-10): the release-candidate ladder passed quick 34/34, full
+      52/52, stress 82/82, and release 83/83 on Windows and Linux in run
+      38045945587; the Windows installer on a fresh runner and the `.deb` and
+      `.tar.gz` in a fresh `ubuntu:24.04` container without a C toolchain
+      passed install, compile, run, and removal in run 38045707261. The Linux
+      gate found and fixed an installed compiler that could not find its
+      standard library and a `.deb` that did not declare its linker.
+- [ ] Give Nazm-assembled Linux objects a non-executable stack marking; the
+      clean-container gate shows `ld` warning that an executable stack is
+      implied on the default assembler path.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
 - [ ] Add ArbSh as an independently owned component only after E2.2's
       standalone installer gate passes.
