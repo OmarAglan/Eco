@@ -328,6 +328,21 @@ and [Takween 32569904685](https://github.com/OmarAglan/Takween/actions/runs/3256
 E3 is closed. The optional in-process `nazm-api-v1` default remains a separate
 future admission decision.
 
+**Embedded default, step 1 (2026-10-10):** Baa `31a1978` links `nazm-api-v1`
+from the pinned Nazm `14c6cf4` into release builds and keeps it opt-in;
+`baa --version` names the linked Nazm version, revision and mode. Evidence on
+Windows and Linux: integration tests and corpus object-byte parity against the
+subprocess on an opt-in and a default build, plus the clean-machine installer
+and package gates with no Nazm executable reachable, in
+[Baa CI 38058131936](https://github.com/OmarAglan/Baa/actions/runs/38058131936);
+the quick/full/stress/release ladder (34/52/82/83) on a default build with no
+Nazm executable selected in admission run
+[38058138839](https://github.com/OmarAglan/Baa/actions/runs/38058138839); and
+the release-candidate ladder on the shipping configuration in
+[38058141056](https://github.com/OmarAglan/Baa/actions/runs/38058141056).
+No shipped default changed. Step 2, making the embedded assembler the release
+default, is a separate approval; the Developer Kit is rebuilt once after it.
+
 ## E4 — Local packages before a public registry
 
 **Outcome:** package semantics are proven without prematurely operating a
@@ -414,8 +429,8 @@ not a second owner of their installed files.
       Kit `4d3e756`, CI run 37769971047 (2026-10-08): isolated per-user and
       all-users machine-PATH install, repair, runtime, and uninstall on a
       fresh `windows-latest` runner.
-      Rebuilt at the current pins (Nazm `14c6cf4`, Baa `246ed36`, Takween
-      `1f25f86`, Baa-LSP `d2eabdc`, Qalam `f682bd9`): Kit `639404c`, CI run
+      Rebuilt at Nazm `14c6cf4`, Baa `246ed36`, Takween
+      `1f25f86`, Baa-LSP `d2eabdc`, Qalam `f682bd9`: Kit `639404c`, CI run
       38051624676 (2026-10-10), same per-user and all-users lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full

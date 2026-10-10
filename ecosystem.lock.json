@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "246ed36c353c60be6c3d77e3e11222ea62e2c5c0",
+      "revision": "145c6896910d178aa41500f1d85108f8c2c9ec10",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,8 +54,8 @@
       "verification": {
         "state": "cross-platform-ci-and-clean-machine-release-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38049831053",
-          "verified_revision": "246ed36c353c60be6c3d77e3e11222ea62e2c5c0",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38059015369",
+          "verified_revision": "145c6896910d178aa41500f1d85108f8c2c9ec10",
           "verified_at": "2026-10-10"
         }
       },
@@ -87,7 +87,7 @@
         "In-process nazm-api-v1 production admission"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-in-process-admission-pending",
+        "state": "cross-platform-ci-verified-embedded-step-1-admitted-release-default-pending",
         "receipt": {
           "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38049146917",
           "verified_revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
@@ -470,7 +470,7 @@
     {
       "id": "nazm-api-v1",
       "owner": "nazm",
-      "state": "cli-equivalent-opt-in-embedded-default-deferred",
+      "state": "linked-in-release-builds-opt-in-embedded-default-step-1-verified",
       "consumers": [
         "baa"
       ]
