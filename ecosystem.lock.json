@@ -111,7 +111,7 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "4433a120dd80b61b59f69a0a6cc370f462de8e7e",
+      "revision": "1f25f867eab988ca8c06ed6af9164c7d73a298be",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Arabic package commands, NFC package identity, and namespaces"
@@ -119,9 +119,9 @@
       "verification": {
         "state": "cross-platform-ci-full-suite-verified-package-milestone-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/37763788451",
-          "verified_revision": "4433a120dd80b61b59f69a0a6cc370f462de8e7e",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38050807186",
+          "verified_revision": "1f25f867eab988ca8c06ed6af9164c7d73a298be",
+          "verified_at": "2026-10-10"
         }
       },
       "provides": [
@@ -185,7 +185,7 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "d44b5ade67416d19dc4299c103e10887c90bf648",
+      "revision": "d2eabdc5c02915fa730ee20d7e06333dedbc44cc",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
         "Structured logs production admission"
@@ -193,9 +193,9 @@
       "verification": {
         "state": "cross-platform-ci-verified-structured-log-admission-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/37763795572",
-          "verified_revision": "d44b5ade67416d19dc4299c103e10887c90bf648",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38050805165",
+          "verified_revision": "d2eabdc5c02915fa730ee20d7e06333dedbc44cc",
+          "verified_at": "2026-10-10"
         }
       },
       "provides": [
