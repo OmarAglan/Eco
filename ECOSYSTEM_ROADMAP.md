@@ -471,6 +471,14 @@ not a second owner of their installed files.
       that revision, and its clean-container gate fails on the linker warning
       for the Nazm and GAS paths (run 38049326563); the release-candidate
       ladder passed again on both hosts in run 38049343387.
+- [x] Publish Baa 0.6.0 and Nazm 0.4.0 (2026-10-10), unsigned by decision.
+      Baa tag `v0.6.0` and branch `release/v0.6.0` name the documentation-only
+      release commit `4438abe`; the published installer, `.deb`, and `.tar.gz`
+      with their SHA-256 files are the artifacts of Baa CI run 38065099777 on
+      it. Nazm tag `v0.4.0` names `14c6cf4`, the exact source embedded in that
+      Baa, with the installer of CI run 38049146917. Takween, Baa-LSP, and the
+      kit still build against Baa `8606d37`, which differs from the tag only in
+      documentation. The kit itself is not published.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
 - [ ] Add ArbSh as an independently owned component only after E2.2's
       standalone installer gate passes.

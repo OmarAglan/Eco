@@ -46,16 +46,16 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "8606d372cf1c57efa1622ee1bf8f9a0e010cc792",
+      "revision": "4438abec1df6832464194ca3fddde4894811e2f4",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
       ],
       "verification": {
-        "state": "cross-platform-ci-and-clean-machine-release-verified-signing-pending",
+        "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38060416686",
-          "verified_revision": "8606d372cf1c57efa1622ee1bf8f9a0e010cc792",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38065099777",
+          "verified_revision": "4438abec1df6832464194ca3fddde4894811e2f4",
           "verified_at": "2026-10-10"
         }
       },
