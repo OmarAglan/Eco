@@ -397,8 +397,34 @@ Baa `cb687ed` builds with that revision and emits none of the newly rejected
 forms (Baa CI 38142164273, release-candidate ladder 38142216525); Takween
 `65110fc` (38142190688), Baa-LSP `f74a507` (38142193111), and Kit `c15b4cf`
 (38143021354) follow. The published 0.6.0 artifacts still carry Nazm
-`14c6cf4`. Nazm's next gate is a written compatibility policy: what counts as
-an API break or a source-format break.
+`14c6cf4`.
+
+**Compatibility policy (2026-10-11):** Nazm `0a3f397` adds
+`Docs/COMPATIBILITY.md`. For the C API, the source format, the object file,
+the capability document, the command line, and diagnostics it says what is a
+break, what is an addition, and what is a fix, and the smallest release that
+may carry each before and after 1.0. A break enters with an Arabic migration
+diagnostic that names the replacement, never with an alias. Adding a register
+name or a `NazmStatus` value is a break; adding an instruction name is not,
+because a word before a colon is a label definition and an instruction name
+in operand position is a label reference. Diagnostic wording and listing
+columns are outside the contract. Tests stand behind the text:
+`unit_test_api` pins every status and format value, the size of every public
+struct and the offset of every field on a 64-bit host, rebuilds the
+fingerprint from its parts, and assembles an instruction name used as a
+symbol for ELF64 and COFF; `integration_api_fingerprint_contract` rejects a
+CMake version that the header does not carry. Nothing under `src/` or
+`include/` changed, so the library Baa embeds is the same code as at
+`8e80779`. Evidence on Windows and Linux:
+[Nazm CI 38145374602](https://github.com/OmarAglan/Nazm/actions/runs/38145374602).
+Baa `394acb1` (CI 38145496435), Takween `10cffc9` (38145945086), Baa-LSP
+`e07fbb4` (38145948459), and Kit `4f3a67f` (38146197202) follow; Baa's release-candidate
+ladder was not rerun for a documentation-and-tests revision and last passed
+in 38142216525 at `cb687ed`. One gap is recorded rather than closed: the
+fingerprint names a release, not a revision, so every revision between 0.4.0
+and the next release reports the 0.4.0 fingerprint, and a consumer of an
+untagged revision must add the revision to its cache identity. Baa's cache
+key does not do that today. Nazm's next gate is the 1.0 readiness review.
 
 ## E4 — Local packages before a public registry
 
@@ -498,7 +524,9 @@ not a second owner of their installed files.
       `d3bcf79`, Qalam `f682bd9`: Kit `de693ba`, CI run 38141542530
       (2026-10-11), same lifecycle. Rebuilt at Nazm `8e80779`, Baa `cb687ed`,
       Takween `65110fc`, Baa-LSP `f74a507`, Qalam `f682bd9`: Kit `c15b4cf`, CI
-      run 38143021354 (2026-10-11), same lifecycle.
+      run 38143021354 (2026-10-11), same lifecycle. Rebuilt at Nazm `0a3f397`,
+      Baa `394acb1`, Takween `10cffc9`, Baa-LSP `e07fbb4`, Qalam `f682bd9`: Kit
+      `4f3a67f`, CI run 38146197202 (2026-10-11), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run

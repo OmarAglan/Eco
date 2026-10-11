@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "cb687edd53482e2c0c6537bf297f02e035c80eb6",
+      "revision": "394acb1cea8cf836cfcb825a468f5a66370a41ff",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,8 +54,8 @@
       "verification": {
         "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38142164273",
-          "verified_revision": "cb687edd53482e2c0c6537bf297f02e035c80eb6",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38145496435",
+          "verified_revision": "394acb1cea8cf836cfcb825a468f5a66370a41ff",
           "verified_at": "2026-10-11"
         }
       },
@@ -81,16 +81,16 @@
       "repository": "OmarAglan/Nazm",
       "version": "0.4.0",
       "version_source": "CMakeLists.txt",
-      "revision": "8e8077997da08f6023ed6365ac4fbddbe3184788",
+      "revision": "0a3f397c46ab1ca217336d5111f52a9b80ee6a1b",
       "role": "assembler-object-writer",
       "pending_gates": [
-        "Compatibility policy: what counts as an API break or a source-format break"
+        "1.0 readiness review: final conditions for instructions, outputs, tests, and documentation"
       ],
       "verification": {
         "state": "cross-platform-ci-verified-embedded-release-default-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38142058580",
-          "verified_revision": "8e8077997da08f6023ed6365ac4fbddbe3184788",
+          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38145374602",
+          "verified_revision": "0a3f397c46ab1ca217336d5111f52a9b80ee6a1b",
           "verified_at": "2026-10-11"
         }
       },
@@ -111,7 +111,7 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "65110fcedc4e8b9c5be46f5be9a8085e00784d39",
+      "revision": "10cffc98a9fcd1ee92a18ce3eb71cf6b06f61761",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Arabic package commands, NFC package identity, and namespaces"
@@ -119,8 +119,8 @@
       "verification": {
         "state": "cross-platform-ci-full-suite-verified-package-milestone-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38142190688",
-          "verified_revision": "65110fcedc4e8b9c5be46f5be9a8085e00784d39",
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38145945086",
+          "verified_revision": "10cffc98a9fcd1ee92a18ce3eb71cf6b06f61761",
           "verified_at": "2026-10-11"
         }
       },
@@ -185,7 +185,7 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "f74a50790038570664adcfb0d2e3bf64e1aa7201",
+      "revision": "e07fbb418e2f628f31675707ba2ec0c2f41b76ef",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
         "Incremental document overlays or an in-process Baa frontend API"
@@ -193,8 +193,8 @@
       "verification": {
         "state": "cross-platform-ci-verified-structured-logs-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38142193111",
-          "verified_revision": "f74a50790038570664adcfb0d2e3bf64e1aa7201",
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38145948459",
+          "verified_revision": "e07fbb418e2f628f31675707ba2ec0c2f41b76ef",
           "verified_at": "2026-10-11"
         }
       },
@@ -269,7 +269,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "c15b4cf391f801bb81707d4312806e8329a9b804",
+      "revision": "4f3a67f0fbcba0dfa7fbd7240a80e0670084145a",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -277,8 +277,8 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38143021354",
-          "verified_revision": "c15b4cf391f801bb81707d4312806e8329a9b804",
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38146197202",
+          "verified_revision": "4f3a67f0fbcba0dfa7fbd7240a80e0670084145a",
           "verified_at": "2026-10-11"
         }
       },
