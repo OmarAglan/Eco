@@ -358,9 +358,24 @@ the release-candidate ladder (34/52/82/83) on the strict default build with
 [38059645752](https://github.com/OmarAglan/Baa/actions/runs/38059645752); and the
 subprocess ladder (34/52/82/83) of the same commit in admission run
 [38059648700](https://github.com/OmarAglan/Baa/actions/runs/38059648700).
-The standalone `نظم` command keeps shipping as its own tool. Nazm's next gate
-is allocation-failure injection for every low-level allocation behind
-`nazm-api-v1`.
+The standalone `نظم` command keeps shipping as its own tool.
+
+**Allocation-failure injection (2026-10-11):** Nazm `ea03ff1` routes every heap
+request through one door and builds its sources a second time with an injector
+that can fail any heap request or arena allocation. Its tests fail each of the
+830 ELF64 and 823 COFF allocation points behind `nazm-api-v1` across 14
+sources, alone and as an exhausted heap, and require
+`NAZM_STATUS_OUT_OF_MEMORY`, an empty result, and no live heap block. The
+command is failed at every point too, one process each, and must exit 2 with
+an Arabic message, no partial object or listing, and an untouched source file.
+The sweep found and fixed a diagnostic-string leak in the API, an I/O status
+where memory was the cause, and a source/output path guard that answered
+"different" when it ran out of memory. Linux CI now runs all of CTest under
+ASan and UBSan. Evidence on Windows and Linux:
+[Nazm CI 38139822042](https://github.com/OmarAglan/Nazm/actions/runs/38139822042).
+Baa, Takween, Baa-LSP, and the kit still build the released Nazm `14c6cf4`;
+moving their pin is a separate change. Nazm's next gate is lexer and parser
+fuzzing over the injected build.
 
 ## E4 — Local packages before a public registry
 

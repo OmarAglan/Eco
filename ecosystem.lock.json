@@ -81,17 +81,18 @@
       "repository": "OmarAglan/Nazm",
       "version": "0.4.0",
       "version_source": "CMakeLists.txt",
-      "revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
+      "revision": "ea03ff14376bbf78fbe1cb2ba9a53414b70cfd60",
       "role": "assembler-object-writer",
       "pending_gates": [
-        "Allocation-failure injection for every low-level allocation behind nazm-api-v1"
+        "Lexer and parser fuzzing over the allocation-fault-injected build",
+        "Move the Nazm pin in Baa, Takween, Baa-LSP, and the kit from the released 14c6cf4 to the fault-injected revision"
       ],
       "verification": {
         "state": "cross-platform-ci-verified-embedded-release-default-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38049146917",
-          "verified_revision": "14c6cf4565067e9e32af72c2c1af6b9ef2456744",
-          "verified_at": "2026-10-10"
+          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38139822042",
+          "verified_revision": "ea03ff14376bbf78fbe1cb2ba9a53414b70cfd60",
+          "verified_at": "2026-10-11"
         }
       },
       "provides": [
