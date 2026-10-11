@@ -373,9 +373,32 @@ where memory was the cause, and a source/output path guard that answered
 "different" when it ran out of memory. Linux CI now runs all of CTest under
 ASan and UBSan. Evidence on Windows and Linux:
 [Nazm CI 38139822042](https://github.com/OmarAglan/Nazm/actions/runs/38139822042).
-Baa, Takween, Baa-LSP, and the kit still build the released Nazm `14c6cf4`;
-moving their pin is a separate change. Nazm's next gate is lexer and parser
-fuzzing over the injected build.
+Baa `8fc9653`, Takween `e166c84`, Baa-LSP `d3bcf79`, and Kit `de693ba` moved
+to that revision the same day: Baa CI 38140413339 and its release-candidate
+ladder 38140413886, Takween 38141002459, Baa-LSP 38141005539, and the kit's
+per-user and all-users lifecycle 38141542530.
+
+**Lexer and parser fuzzing (2026-10-11):** Nazm `8e80779` adds a seeded fuzz
+suite over the injected build. Each run generates 6000 inputs (raw bytes,
+vocabulary soup, programs built line by line, and mutations of the 14 shipped
+sources), assembles each to ELF64 and COFF, and requires an object or Arabic
+diagnostics: no crash, no leak, no internal error, no diagnostic that is not
+valid UTF-8, and the same answer when asked twice. One input in four is
+assembled again with random allocation points failing. The fuzzing found and
+fixed three defects: ill-formed UTF-8 was accepted inside comments and string
+literals, a diagnostic that echoed a long name was cut inside a character, and
+number literals beyond 64 bits wrapped through signed overflow instead of
+being rejected. Twelve further seeds at 20000 inputs per generator, four with
+undefined behavior trapped, found nothing more. The suite is a seeded
+regression gate, not a coverage-guided campaign. Evidence on Windows and on
+Linux under ASan and UBSan:
+[Nazm CI 38142058580](https://github.com/OmarAglan/Nazm/actions/runs/38142058580).
+Baa `cb687ed` builds with that revision and emits none of the newly rejected
+forms (Baa CI 38142164273, release-candidate ladder 38142216525); Takween
+`65110fc` (38142190688), Baa-LSP `f74a507` (38142193111), and Kit `c15b4cf`
+(38143021354) follow. The published 0.6.0 artifacts still carry Nazm
+`14c6cf4`. Nazm's next gate is a written compatibility policy: what counts as
+an API break or a source-format break.
 
 ## E4 — Local packages before a public registry
 
@@ -471,6 +494,11 @@ not a second owner of their installed files.
       `96b4ddd`, CI run 38062166442 (2026-10-10), same lifecycle; the installed Baa
       reports the embedded default and builds a program with no Nazm on PATH.
       Takween and Baa-LSP changed only their CI pin to that Baa.
+      Rebuilt at Nazm `ea03ff1`, Baa `8fc9653`, Takween `e166c84`, Baa-LSP
+      `d3bcf79`, Qalam `f682bd9`: Kit `de693ba`, CI run 38141542530
+      (2026-10-11), same lifecycle. Rebuilt at Nazm `8e80779`, Baa `cb687ed`,
+      Takween `65110fc`, Baa-LSP `f74a507`, Qalam `f682bd9`: Kit `c15b4cf`, CI
+      run 38143021354 (2026-10-11), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run
@@ -491,9 +519,10 @@ not a second owner of their installed files.
       release commit `4438abe`; the published installer, `.deb`, and `.tar.gz`
       with their SHA-256 files are the artifacts of Baa CI run 38065099777 on
       it. Nazm tag `v0.4.0` names `14c6cf4`, the exact source embedded in that
-      Baa, with the installer of CI run 38049146917. Takween, Baa-LSP, and the
-      kit still build against Baa `8606d37`, which differs from the tag only in
-      documentation. The kit itself is not published.
+      Baa, with the installer of CI run 38049146917. At publication Takween,
+      Baa-LSP, and the kit built against Baa `8606d37`, which differs from the
+      tag only in documentation; they have since moved past the tag with the
+      Nazm revisions recorded under E3. The kit itself is not published.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
 - [ ] Add ArbSh as an independently owned component only after E2.2's
       standalone installer gate passes.
