@@ -424,7 +424,39 @@ in 38142216525 at `cb687ed`. One gap is recorded rather than closed: the
 fingerprint names a release, not a revision, so every revision between 0.4.0
 and the next release reports the 0.4.0 fingerprint, and a consumer of an
 untagged revision must add the revision to its cache identity. Baa's cache
-key does not do that today. Nazm's next gate is the 1.0 readiness review.
+key does not do that today.
+
+**1.0 readiness review (2026-10-11):** Nazm `e405681` adds
+`Docs/READINESS.md`, the list of conditions for Nazm 1.0 across instructions,
+outputs, tests, documentation, and the release. The criterion is the
+compatibility policy: a condition is anything whose later correction would be
+a break. The list rests on measurement rather than on roadmap ticks. The
+instruction, register, and directive names were cross-checked between the
+keyword table, the capability document, and the terminology reference. Merged
+line coverage of the library was 92.7% before the review and 93.2% after its
+tests. A new test, `differential_register_matrix_gas`, generates 116,442
+statements that put every register in every operand position of every
+implemented form, assembles them through the real command line, and compares
+the disassembly with GNU as; it runs on Windows and on Linux under Release
+and under ASan and UBSan. It found no wrong byte: 363 statements differ in
+bytes only, where GNU as writes the short accumulator-immediate form and Nazm
+the general one. Of 28 conditions, 10 are met, 13 are open, and 5 are owner
+decisions: whether to declare the 16-bit widening forms the encoder already
+accepts, whether to freeze the 80 register names or reserve their prefixes,
+whether to keep or tighten the literal pattern rule, how an untagged revision
+is identified in the fingerprint, and whether 1.0 ships signed. The open
+conditions include an executed test of the 64-bit absolute relocation path, a
+differential for symbolic forms, the multi-file DWARF paths, COFF link-and-run
+and coverage in Nazm's own CI, and a Linux archive with a clean-machine
+receipt. The revision changes documentation and tests only; nothing under
+`src/` or `include/` changed, so the library Baa embeds is the same code as
+at `8e80779`. Evidence on Windows and Linux:
+[Nazm CI 38152050738](https://github.com/OmarAglan/Nazm/actions/runs/38152050738).
+Baa `b0d112c` (CI 38152306495), Takween `1b73a6c` (38152891667), Baa-LSP
+`34349af` (38152894658), and Kit `f43acca` (38153184683) follow; Baa's release-candidate
+ladder was again not rerun and last passed in 38142216525 at `cb687ed`.
+Nazm's next gates are the owner decisions and the open conditions in
+`Docs/READINESS.md`.
 
 ## E4 — Local packages before a public registry
 
@@ -526,7 +558,9 @@ not a second owner of their installed files.
       Takween `65110fc`, Baa-LSP `f74a507`, Qalam `f682bd9`: Kit `c15b4cf`, CI
       run 38143021354 (2026-10-11), same lifecycle. Rebuilt at Nazm `0a3f397`,
       Baa `394acb1`, Takween `10cffc9`, Baa-LSP `e07fbb4`, Qalam `f682bd9`: Kit
-      `4f3a67f`, CI run 38146197202 (2026-10-11), same lifecycle.
+      `4f3a67f`, CI run 38146197202 (2026-10-11), same lifecycle. Rebuilt at
+      Nazm `e405681`, Baa `b0d112c`, Takween `1b73a6c`, Baa-LSP `34349af`, Qalam
+      `f682bd9`: Kit `f43acca`, CI run 38153184683 (2026-10-11), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run
