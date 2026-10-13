@@ -455,8 +455,36 @@ at `8e80779`. Evidence on Windows and Linux:
 Baa `b0d112c` (CI 38152306495), Takween `1b73a6c` (38152891667), Baa-LSP
 `34349af` (38152894658), and Kit `f43acca` (38153184683) follow; Baa's release-candidate
 ladder was again not rerun and last passed in 38142216525 at `cb687ed`.
-Nazm's next gates are the owner decisions and the open conditions in
+Nazm's next gates were the owner decisions and the open conditions in
 `Docs/READINESS.md`.
+
+**1.0 conditions closed (2026-10-13):** Nazm `4a4da86` takes the five owner
+decisions and closes the thirteen open conditions; `Docs/READINESS.md` has no
+row left open. The decisions: declare the 16-bit widening forms; reserve the
+prefixes `سجل_`, `مؤشر_` and `فهرس_` for register names instead of freezing
+the 80 names; keep the literal pattern rule and test it; keep the fingerprint
+a release identity and make consumers of an untagged revision add the
+revision; ship 1.0 unsigned. Unlike the two revisions before it, this one
+changes library source. Two faults were found by the new tests and fixed: a
+jump or call whose target was neither a label nor a 64-bit register was
+encoded with a zero displacement and is now rejected, and `.محاذاة` did not
+raise the section alignment recorded in the object. New gates: a differential
+that links the symbolic forms through GNU `ld` and compares the linked bytes
+with GNU as, link-and-run for COFF and ELF, a `readelf` check of a two-file
+line table, a libFuzzer target with its own CI job, line coverage of `src/`
+in CI with a 90% floor (95.4% measured on Windows), a Linux archive checked
+in a container with no compiler, and a UTF-8 check of tracked text. Nazm runs
+34 CTest tests and 483 Unity tests on Windows. Evidence on Windows, Linux and
+the fuzz job:
+[Nazm CI 38382405665](https://github.com/OmarAglan/Nazm/actions/runs/38382405665).
+Baa `f400dc8` (CI 38383101702) escapes user names that start with a reserved
+prefix as `رمز_باء_<name>` and adds the embedded Nazm revision to its object
+cache slot, which closes the gap recorded on 2026-10-11; because Nazm source
+changed, its release-candidate ladder was rerun and passed in 38383102240.
+Takween `00d5514` (38383127452), Baa-LSP `7ec7686` (38383133388), and Kit
+`c0e013a` (38384310500) follow. The Nazm version is still 0.4.0. Its next
+gate is cutting 0.5.0, which carries the breaking changes, and building the
+three consumers on it before 1.0.
 
 ## E4 — Local packages before a public registry
 
@@ -561,6 +589,9 @@ not a second owner of their installed files.
       `4f3a67f`, CI run 38146197202 (2026-10-11), same lifecycle. Rebuilt at
       Nazm `e405681`, Baa `b0d112c`, Takween `1b73a6c`, Baa-LSP `34349af`, Qalam
       `f682bd9`: Kit `f43acca`, CI run 38153184683 (2026-10-11), same lifecycle.
+      Rebuilt at Nazm `4a4da86`, Baa `f400dc8`, Takween `00d5514`, Baa-LSP
+      `7ec7686`, Qalam `f682bd9`: Kit `c0e013a`, CI run 38384310500
+      (2026-10-13), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run
