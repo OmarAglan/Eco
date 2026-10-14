@@ -483,8 +483,25 @@ cache slot, which closes the gap recorded on 2026-10-11; because Nazm source
 changed, its release-candidate ladder was rerun and passed in 38383102240.
 Takween `00d5514` (38383127452), Baa-LSP `7ec7686` (38383133388), and Kit
 `c0e013a` (38384310500) follow. The Nazm version is still 0.4.0. Its next
-gate is cutting 0.5.0, which carries the breaking changes, and building the
+gate was cutting 0.5.0, which carries the breaking changes, and building the
 three consumers on it before 1.0.
+
+**Nazm 0.5.0 and 1.0.0 cut (2026-10-14):** Nazm 0.5.0 (`a68c6c3`, CI
+38396743935) and then 1.0.0 (`f58faf0`, tag CI
+[38537749982](https://github.com/OmarAglan/Nazm/actions/runs/38537749982)) were
+released unsigned. Each differs from `4a4da86` only in the version, capability
+digest and fingerprint. The v1.0.0 GitHub release carries
+`nazm-setup-1.0.0-x64.exe`, the Linux archive and their SHA-256 files. Baa
+`5c17301` embeds Nazm 1.0.0 (CI 38538101351; release-candidate ladder
+38538101494). Takween `eedb7b0` (CI 38541291285) adds the Arabic package commands
+`أضف/احذف/حدّث/ابحث`, NFC package identity, and `نطاق/اسم` namespaces; an
+unnamespaced v1 name keeps its exact bytes. Baa-LSP `0bbaad1` (CI 38538172972)
+applies incremental `didChange` overlays to its document copies; Baa still
+analyses the whole text in a separate process, so an in-process frontend API
+remains open. Kit `0e25d5d` (CI 38541871622) packages Nazm 1.0.0. While writing the
+Takween commands it was found that Baa evaluates both operands of `&&` and
+`||` (`Baa/src/middleend/ir_lower_expr_impl.c`), contrary to its language
+reference; Takween guards are nested `إذا` blocks until Baa short-circuits.
 
 ## E4 — Local packages before a public registry
 
@@ -498,8 +515,11 @@ public service.
       SHA-256 archive identity for an explicit local package index.
 - [x] Finish the deterministic local archive format, bounded safe extraction,
       vendoring, explicit offline verification, and Baa/target constraints.
-- [ ] Define registry namespaces and an explicit Unicode NFC identity migration;
-      do not change the byte-exact v1 identity contract silently.
+- [x] Define registry namespaces and an explicit Unicode NFC identity migration;
+      do not change the byte-exact v1 identity contract silently. Takween
+      `eedb7b0` (2026-10-14): `نطاق/اسم` names, an NFC-closed identity set that
+      rejects decomposed manifest names, and unchanged bytes for unnamespaced
+      v1 names; namespace ownership stays with the E4.2 registry.
 - [x] Generate deterministic `takween-lock-v1` state for exact transitive path/Git
       nodes, sources, parent edges, selected Baa target, and Git commits.
 - [x] Add local-index archive resolution with exact SemVer selections and
@@ -591,7 +611,9 @@ not a second owner of their installed files.
       `f682bd9`: Kit `f43acca`, CI run 38153184683 (2026-10-11), same lifecycle.
       Rebuilt at Nazm `4a4da86`, Baa `f400dc8`, Takween `00d5514`, Baa-LSP
       `7ec7686`, Qalam `f682bd9`: Kit `c0e013a`, CI run 38384310500
-      (2026-10-13), same lifecycle.
+      (2026-10-13), same lifecycle. Rebuilt at Nazm 1.0.0 `f58faf0`, Baa
+      `5c17301`, Takween `eedb7b0`, Baa-LSP `0bbaad1`, Qalam `f682bd9`: Kit
+      `0e25d5d`, CI run 38541871622 (2026-10-14), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run

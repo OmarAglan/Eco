@@ -261,7 +261,7 @@ if (Test-Path -LiteralPath $lockPath) {
 }
 
 Require-Match 'Baa/CMakeLists.txt' 'project\(baa VERSION 0\.6\.0' 'Baa 0.6.0 version'
-Require-Match 'Nazm/CMakeLists.txt' 'VERSION 0\.4\.0' 'Nazm 0.4.0 version'
+Require-Match 'Nazm/CMakeLists.txt' 'VERSION 1\.0\.0' 'Nazm 1.0.0 version'
 Require-Match 'Qalam-IDE/CMakeLists.txt' 'project\(QalamIDE VERSION 3\.7\.0' 'Qalam 3.7.0 version'
 Require-Match 'Baa-LSP/CMakeLists.txt' 'project\(BaaLSP VERSION 0\.1\.0' 'Baa-LSP 0.1.0 version'
 Require-Match 'Takween/scripts/build_takween.ps1' '\$Version = "0\.1\.0"' 'Takween 0.1.0 version'
