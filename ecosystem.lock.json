@@ -46,18 +46,17 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "5c173014463d0af40943e6b6556ae1e08fe3c9ca",
+      "revision": "8c6cbcf105701b9bfcbcd2e92e31c2e3b6b0ef75",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
-        "Authenticode-signed Windows installer",
-        "Short-circuit evaluation of && and || (both operands are currently evaluated)"
+        "Authenticode-signed Windows installer"
       ],
       "verification": {
         "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38538101351",
-          "verified_revision": "5c173014463d0af40943e6b6556ae1e08fe3c9ca",
-          "verified_at": "2026-10-14"
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38554056390",
+          "verified_revision": "8c6cbcf105701b9bfcbcd2e92e31c2e3b6b0ef75",
+          "verified_at": "2026-10-15"
         }
       },
       "provides": [
@@ -73,7 +72,8 @@
         "semantic-index-json-v1-implemented-draft",
         "inlay-hints-json-v1-implemented-cross-platform-verified",
         "baa-nazm-boundary-v0-production-default-cross-platform-verified",
-        "target-spec-v1-implemented-draft"
+        "target-spec-v1-implemented-draft",
+        "baa-frontend-api-v1-cross-platform-verified"
       ]
     },
     {
@@ -112,17 +112,17 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "eedb7b014336418043cdd757cdf8fdc5bba820f1",
+      "revision": "a77404cd180a7dc4922d82c3d2ecc1aa44df0f63",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Registry namespace ownership and the E4.1 Baa SDK layout"
       ],
       "verification": {
-        "state": "cross-platform-ci-full-suite-verified-package-commands-nfc-namespaces",
+        "state": "cross-platform-ci-full-suite-verified-package-commands-nfc-namespaces-short-circuit-guards",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38541291285",
-          "verified_revision": "eedb7b014336418043cdd757cdf8fdc5bba820f1",
-          "verified_at": "2026-10-14"
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38554112869",
+          "verified_revision": "a77404cd180a7dc4922d82c3d2ecc1aa44df0f63",
+          "verified_at": "2026-10-15"
         }
       },
       "provides": [
@@ -188,17 +188,18 @@
       "repository": "OmarAglan/Baa-LSP",
       "version": "0.1.0",
       "version_source": "CMakeLists.txt",
-      "revision": "0bbaad1a80edfe5cceeb442c5d2f07178db383d9",
+      "revision": "ab9a105c3cde06f546b9f3811f257b5c04cc4e52",
       "role": "baa-language-server-protocol-adapter",
       "pending_gates": [
-        "In-process Baa frontend API"
+        "Incremental Baa analysis (each change still re-analyses the whole document)",
+        "Packaged Baa-LSP (Qalam, Developer Kit) built with the in-process frontend"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-incremental-overlays",
+        "state": "cross-platform-ci-verified-incremental-overlays-in-process-frontend",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38538172972",
-          "verified_revision": "0bbaad1a80edfe5cceeb442c5d2f07178db383d9",
-          "verified_at": "2026-10-14"
+          "run_url": "https://github.com/OmarAglan/Baa-LSP/actions/runs/38554167584",
+          "verified_revision": "ab9a105c3cde06f546b9f3811f257b5c04cc4e52",
+          "verified_at": "2026-10-15"
         }
       },
       "provides": [
@@ -211,7 +212,8 @@
         "baa-lsp-log-v1-cross-platform-verified",
         "takween-workspace-refresh-lsp-cross-platform-verified",
         "baa-lsp-standalone-packages-cross-platform-verified",
-        "baa-lsp-incremental-document-overlays-cross-platform-verified"
+        "baa-lsp-incremental-document-overlays-cross-platform-verified",
+        "baa-lsp-in-process-frontend-cross-platform-verified"
       ],
       "consumes": [
         "compiler-cli-v1-exit-classification-cross-platform-verified",
@@ -224,7 +226,8 @@
         "semantic-query-json-v1-local-tests-verified",
         "semantic-index-json-v1-local-tests-verified",
         "inlay-hints-json-v1-real-process-cross-platform-verified",
-        "takween-build-plan-v1-real-process-cross-platform-verified"
+        "takween-build-plan-v1-real-process-cross-platform-verified",
+        "baa-frontend-api-v1-cross-platform-verified"
       ]
     },
     {
@@ -273,7 +276,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "0e25d5d01213c3397c4fcfeb5516219453ae02ce",
+      "revision": "105b661b02ac76406097eac569eb0575221682cc",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -281,9 +284,9 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38541871622",
-          "verified_revision": "0e25d5d01213c3397c4fcfeb5516219453ae02ce",
-          "verified_at": "2026-10-14"
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38709673843",
+          "verified_revision": "105b661b02ac76406097eac569eb0575221682cc",
+          "verified_at": "2026-10-15"
         }
       },
       "provides": [

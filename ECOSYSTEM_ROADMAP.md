@@ -503,6 +503,23 @@ Takween commands it was found that Baa evaluates both operands of `&&` and
 `||` (`Baa/src/middleend/ir_lower_expr_impl.c`), contrary to its language
 reference; Takween guards are nested `إذا` blocks until Baa short-circuits.
 
+**Short-circuit and in-process frontend pin (2026-10-15):** Baa `8c6cbcf` (CI
+[38554056390](https://github.com/OmarAglan/Baa/actions/runs/38554056390);
+release-candidate ladder 38709588232) evaluates the right operand of `&&` and `||`
+only when the left one does not decide the result. The larger frames that this
+produced exposed a Windows bug: a prologue that reserved more than a page with a
+single `sub rsp` skipped the stack guard page, and Takween's 21 KiB parser frame
+crashed `takween check` about one run in four. Baa now reserves frames larger
+than 4 KiB a page at a time and touches each page on COFF targets. The same
+revision ships `baa-frontend-api-v1`, a library that runs the Baa frontend inside
+the caller's process with `baa`'s own arguments, verified on Windows, Linux and
+Linux-ASan. Takween `a77404c` (CI 38554112869) restores single `&&`/`||` null
+guards. Baa-LSP `ab9a105` (CI 38554167584) links that library when built with
+`BAA_LSP_BAA_FRONTEND_DIR` and selects it with `--frontend=auto|process|in-process`;
+each change still re-analyses the whole document, and the Qalam-built copy in the
+Kit keeps the process path while Qalam stays frozen. Kit `105b661` (CI 38709673843)
+packages these revisions.
+
 ## E4 — Local packages before a public registry
 
 **Outcome:** package semantics are proven without prematurely operating a
@@ -613,7 +630,9 @@ not a second owner of their installed files.
       `7ec7686`, Qalam `f682bd9`: Kit `c0e013a`, CI run 38384310500
       (2026-10-13), same lifecycle. Rebuilt at Nazm 1.0.0 `f58faf0`, Baa
       `5c17301`, Takween `eedb7b0`, Baa-LSP `0bbaad1`, Qalam `f682bd9`: Kit
-      `0e25d5d`, CI run 38541871622 (2026-10-14), same lifecycle.
+      `0e25d5d`, CI run 38541871622 (2026-10-14), same lifecycle. Rebuilt at Baa
+      `8c6cbcf`, Takween `a77404c`, Baa-LSP `ab9a105`: Kit `105b661`, CI run
+      38709673843 (2026-10-15), same lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run
