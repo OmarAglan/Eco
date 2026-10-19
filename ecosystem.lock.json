@@ -113,17 +113,17 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "a597c5da3993f5678dc2ec22e8e9f48059a49164",
+      "revision": "6ee36fe20330918c82fa3291110dbd1b7b244e61",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Registry namespace ownership"
       ],
       "verification": {
-        "state": "cross-platform-ci-full-suite-verified-sdk-store-locked-sdk-selection-tool-environments",
+        "state": "cross-platform-ci-full-suite-verified-sdk-store-tool-environments-official-packages",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/39015191013",
-          "verified_revision": "a597c5da3993f5678dc2ec22e8e9f48059a49164",
-          "verified_at": "2026-10-17"
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/39271303026",
+          "verified_revision": "6ee36fe20330918c82fa3291110dbd1b7b244e61",
+          "verified_at": "2026-10-19"
         }
       },
       "provides": [
@@ -133,7 +133,9 @@
         "takween-package-commands-v0-cross-platform-verified",
         "takween-nfc-namespaced-identity-cross-platform-verified",
         "takween-sdk-store-v1-cross-platform-verified",
-        "takween-tool-env-v1-cross-platform-verified"
+        "takween-tool-env-v1-cross-platform-verified",
+        "takween-pack-v1-cross-platform-verified",
+        "takween-official-packages-v1-cross-platform-verified"
       ],
       "consumes": [
         "compiler-cli-v1-exit-codes-cross-platform-verified",
@@ -280,7 +282,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "1a9e11e329c16fa8620709e5ee9b69e4d6a22702",
+      "revision": "ada95e7dec20cedb90d47ec458077f0ae479a089",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -288,9 +290,9 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/39015461323",
-          "verified_revision": "1a9e11e329c16fa8620709e5ee9b69e4d6a22702",
-          "verified_at": "2026-10-17"
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/39272242578",
+          "verified_revision": "ada95e7dec20cedb90d47ec458077f0ae479a089",
+          "verified_at": "2026-10-19"
         }
       },
       "provides": [
@@ -535,6 +537,14 @@
       "consumers": [
         "takween",
         "qalam"
+      ]
+    },
+    {
+      "id": "takween-pack-v1",
+      "owner": "takween",
+      "state": "implemented-cross-platform-verified",
+      "consumers": [
+        "takween"
       ]
     },
     {

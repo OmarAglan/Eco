@@ -545,8 +545,28 @@ public service.
 - [x] Add an externally populated content-addressed cache foundation and prove
       locked rebuild/run offline.
 - [x] Keep `baalib` bundled with the SDK.
-- [ ] Publish higher-level official libraries as ordinary versioned packages.
+- [x] Publish higher-level official libraries as ordinary versioned packages.
 - [x] Forbid implicit install/build lifecycle scripts in the first package format.
+
+**Official packages (2026-10-19):** Takween `7794452`..`6ee36fe` (CI
+[39271303026](https://github.com/OmarAglan/Takween/actions/runs/39271303026))
+adds `تكوين حزّم` (`pack`). It writes the manifest and the files listed in
+`[الحزمة] الملفات` into a sorted, deterministic `takween-archive-v1` and
+registers it in a local `takween-index-v1`. Index rows name archives relative to
+the index directory, so the whole directory can move. A published version is
+immutable: repacking changed bytes under the same version is rejected and leaves
+the archive and the index untouched. Unsafe paths and an explicitly listed
+manifest are rejected. The official `باء/نصوص` 1.0.0 (search, slicing,
+trim, replace, split and join) and `باء/اختبار` 1.0.0 (assertions and a pass/fail
+summary) live in `Takween/مكتبات/` as ordinary packages with their own test
+targets. CI packs both on Windows and Linux with identical SHA-256 digests and
+uploads them as an artifact. The suite adds both to a consumer from a moved
+index, locks them as archive nodes and builds `--locked`. No registry is
+involved. Kit `ada95e7`
+(CI 39272242578) packages this Takween revision.
+Limits: the libraries ship from the Takween repository, not their own; they are
+not bundled in the Kit; and a development-tree `baa` needs `BAA_STDLIB` to find
+`baalib.baahd`.
 
 ### E4.1 — GCC-like SDKs and transactional tool environments
 
