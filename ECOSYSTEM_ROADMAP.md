@@ -561,26 +561,52 @@ but resolves them from the manifest and committed lockfile instead of a mutable
 global package tree. The first release works from local/signed archives; a public
 registry remains a later E4.2 service.
 
-- [ ] Define an immutable, versioned Baa SDK layout containing Baa, Nazm,
+- [x] Define an immutable, versioned Baa SDK layout containing Baa, Nazm,
       `baalib`, headers, runtimes, and target files, with structured discovery
       comparable to a compiler sysroot rather than hard-coded physical paths.
-- [ ] Freeze a `baa-sdk-v1` archive/metadata contract and make Takween install,
+- [x] Freeze a `baa-sdk-v1` archive/metadata contract and make Takween install,
       verify, discover, select, and remove SDKs atomically without executing
       package-provided scripts.
-- [ ] Allow multiple Baa SDK versions and targets to coexist and let Takween pin
+- [x] Allow multiple Baa SDK versions and targets to coexist and let Takween pin
       the selected SDK identity in project plans and locks.
-- [ ] Add a content-addressed tool store and named environments for user-installed
+- [x] Add a content-addressed tool store and named environments for user-installed
       command-line tools on Windows and Linux.
-- [ ] Add a transactional installed-package database with file ownership,
+- [x] Add a transactional installed-package database with file ownership,
       preflight conflict detection, atomic commit/rollback, and safe removal.
-- [ ] Keep third-party project dependencies out of SDK and tool prefixes; they
+- [x] Keep third-party project dependencies out of SDK and tool prefixes; they
       remain manifest/lock-driven even when a matching tool package is installed.
-- [ ] Expose Arabic-first environment/install/remove/list/owner commands and
+- [x] Expose Arabic-first environment/install/remove/list/owner commands and
       structured events for Qalam without implicit lifecycle scripts.
 
 **Gate:** two Baa SDK versions coexist, a tool can be installed and removed from
 a named environment transactionally, and two differently locked projects build
 reproducibly without depending on the active global environment.
+
+**Gate closed (2026-10-17):** Baa `16f972a`..`dcf3a0c` (CI
+[38721496205](https://github.com/OmarAglan/Baa/actions/runs/38721496205)) defines
+the `baa-sdk-v1` layout and archive. It holds Baa, Nazm, `baalib`, the stdlib,
+the target files and, on Windows, GCC as the linker. The linker is a named,
+replaceable SDK component because Eco plans its own linker. Baa ships a
+deterministic packager and `--sdk-info=json` discovery. Takween `0de87f6`..`a597c5d`
+(CI [39015191013](https://github.com/OmarAglan/Takween/actions/runs/39015191013))
+unpacks SDK archives with its own gzip/ustar reader and runs nothing from them.
+It installs, verifies, lists and removes SDKs atomically, and three versions
+coexist in the store. Takween selects one SDK per project and pins its version,
+host and archive hash in `تكوين.قفل` and the plan. A locked SDK that is missing
+is an error, never a silent PATH fallback. User CLI tools come from `baa-tool-v1`
+archives into a store addressed by archive SHA-256, then copy into named
+environment prefixes. A database records who owns each file. Install and
+remove run as journaled transactions with preflight conflict detection, and
+the next locked operation rolls an interrupted one forward or back. Remove
+keeps edited files. Commands are `أداة ثبت|احذف|قائمة|مالك` and
+`بيئة أنشئ|احذف|مسار|قائمة` with `tool_install`/`tool_remove` events, and no
+lifecycle scripts run. The suite has two projects with different locks and a
+tool environment first on PATH that holds a fake `baa`. Both projects build
+`--مقفل` after `تنظيف`, and their plans and locks stay unchanged. Kit `1a9e11e`
+(CI 39015461323) packages these revisions.
+Limits: only SDKs for Takween's own host install, so other targets can sit in
+the store but are not selectable yet. Removal leaves empty directories. The
+tool store has no garbage collection. There is no in-place tool upgrade.
 
 ### E4.2 — Signed remote registry and publishing
 
@@ -632,7 +658,9 @@ not a second owner of their installed files.
       `5c17301`, Takween `eedb7b0`, Baa-LSP `0bbaad1`, Qalam `f682bd9`: Kit
       `0e25d5d`, CI run 38541871622 (2026-10-14), same lifecycle. Rebuilt at Baa
       `8c6cbcf`, Takween `a77404c`, Baa-LSP `ab9a105`: Kit `105b661`, CI run
-      38709673843 (2026-10-15), same lifecycle.
+      38709673843 (2026-10-15), same lifecycle. Rebuilt at Baa `dcf3a0c`,
+      Takween `a597c5d`: Kit `1a9e11e`, CI run 39015461323 (2026-10-17), same
+      lifecycle.
 - [x] Prove Baa's own release artifacts on clean machines. Baa `b5f4383`
       (2026-10-10): the release-candidate ladder passed quick 34/34, full
       52/52, stress 82/82, and release 83/83 on Windows and Linux in run

@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "8c6cbcf105701b9bfcbcd2e92e31c2e3b6b0ef75",
+      "revision": "dcf3a0ccf8652c627a07b8d7a704f69c6429018d",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,8 +54,8 @@
       "verification": {
         "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38554056390",
-          "verified_revision": "8c6cbcf105701b9bfcbcd2e92e31c2e3b6b0ef75",
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38721496205",
+          "verified_revision": "dcf3a0ccf8652c627a07b8d7a704f69c6429018d",
           "verified_at": "2026-10-15"
         }
       },
@@ -73,7 +73,8 @@
         "inlay-hints-json-v1-implemented-cross-platform-verified",
         "baa-nazm-boundary-v0-production-default-cross-platform-verified",
         "target-spec-v1-implemented-draft",
-        "baa-frontend-api-v1-cross-platform-verified"
+        "baa-frontend-api-v1-cross-platform-verified",
+        "baa-sdk-v1-cross-platform-verified"
       ]
     },
     {
@@ -112,17 +113,17 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "a77404cd180a7dc4922d82c3d2ecc1aa44df0f63",
+      "revision": "a597c5da3993f5678dc2ec22e8e9f48059a49164",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
-        "Registry namespace ownership and the E4.1 Baa SDK layout"
+        "Registry namespace ownership"
       ],
       "verification": {
-        "state": "cross-platform-ci-full-suite-verified-package-commands-nfc-namespaces-short-circuit-guards",
+        "state": "cross-platform-ci-full-suite-verified-sdk-store-locked-sdk-selection-tool-environments",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/38554112869",
-          "verified_revision": "a77404cd180a7dc4922d82c3d2ecc1aa44df0f63",
-          "verified_at": "2026-10-15"
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/39015191013",
+          "verified_revision": "a597c5da3993f5678dc2ec22e8e9f48059a49164",
+          "verified_at": "2026-10-17"
         }
       },
       "provides": [
@@ -130,13 +131,16 @@
         "takween-manifest-v1-local-preview",
         "takween-lock-v1-local-archive-preview",
         "takween-package-commands-v0-cross-platform-verified",
-        "takween-nfc-namespaced-identity-cross-platform-verified"
+        "takween-nfc-namespaced-identity-cross-platform-verified",
+        "takween-sdk-store-v1-cross-platform-verified",
+        "takween-tool-env-v1-cross-platform-verified"
       ],
       "consumes": [
         "compiler-cli-v1-exit-codes-cross-platform-verified",
         "build-manifest-v1-local-smoke-verified",
         "diagnostics-json-v1-local-smoke-verified",
-        "baa-nazm-boundary-v0-production-default-cross-platform-verified"
+        "baa-nazm-boundary-v0-production-default-cross-platform-verified",
+        "baa-sdk-v1-cross-platform-verified"
       ]
     },
     {
@@ -276,7 +280,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "105b661b02ac76406097eac569eb0575221682cc",
+      "revision": "1a9e11e329c16fa8620709e5ee9b69e4d6a22702",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -284,9 +288,9 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/38709673843",
-          "verified_revision": "105b661b02ac76406097eac569eb0575221682cc",
-          "verified_at": "2026-10-15"
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/39015461323",
+          "verified_revision": "1a9e11e329c16fa8620709e5ee9b69e4d6a22702",
+          "verified_at": "2026-10-17"
         }
       },
       "provides": [
@@ -506,6 +510,31 @@
       "state": "path-git-local-archive-preview",
       "consumers": [
         "takween"
+      ]
+    },
+    {
+      "id": "baa-sdk-v1",
+      "owner": "baa",
+      "state": "implemented-cross-platform-verified",
+      "consumers": [
+        "takween"
+      ]
+    },
+    {
+      "id": "takween-sdk-store-v1",
+      "owner": "takween",
+      "state": "implemented-cross-platform-verified",
+      "consumers": [
+        "takween"
+      ]
+    },
+    {
+      "id": "takween-tool-env-v1",
+      "owner": "takween",
+      "state": "implemented-cross-platform-verified",
+      "consumers": [
+        "takween",
+        "qalam"
       ]
     },
     {
