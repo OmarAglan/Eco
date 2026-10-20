@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "dcf3a0ccf8652c627a07b8d7a704f69c6429018d",
+      "revision": "e418bc1d153a8bb431371942ce18f2f029b9ec7f",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,9 +54,9 @@
       "verification": {
         "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/38721496205",
-          "verified_revision": "dcf3a0ccf8652c627a07b8d7a704f69c6429018d",
-          "verified_at": "2026-10-15"
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/39413350522",
+          "verified_revision": "e418bc1d153a8bb431371942ce18f2f029b9ec7f",
+          "verified_at": "2026-10-20"
         }
       },
       "provides": [
@@ -242,7 +242,7 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "15b9dbbb6eee4d6bfc4c9e3b739897fe917b2b29",
+      "revision": "bf5a7af45b3d48adf4eb866abd6e74734ee458ca",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
         "Interactive PTY host and arbsh-host-v1 freeze",
@@ -251,9 +251,9 @@
       "verification": {
         "state": "cross-platform-ci-verified-pty-host-and-installer-pending",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/37796006742",
-          "verified_revision": "15b9dbbb6eee4d6bfc4c9e3b739897fe917b2b29",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/39415497371",
+          "verified_revision": "bf5a7af45b3d48adf4eb866abd6e74734ee458ca",
+          "verified_at": "2026-10-20"
         }
       },
       "provides": [
@@ -268,12 +268,13 @@
         "arbsh-arabic-command-catalog-v1-preview-local-windows-verified",
         "arbsh-accessible-terminal-zoom-v1-preview-local-windows-verified",
         "arbsh-terminal-chrome-v0.8-local-windows-verified",
+        "arbsh-eco-run-v1-cross-platform-verified",
         "arbsh-host-v1-planned",
         "eco-arabic-text-corpus-v1-planned"
       ],
       "consumes": [
-        "compiler-cli-v1-integration-planned",
-        "takween-cli-v0-integration-planned"
+        "compiler-cli-v1-cross-platform-verified",
+        "takween-cli-v0"
       ]
     },
     {
@@ -365,7 +366,8 @@
       "state": "implemented-cross-platform-verified",
       "consumers": [
         "takween",
-        "baa-lsp"
+        "baa-lsp",
+        "arbsh"
       ]
     },
     {

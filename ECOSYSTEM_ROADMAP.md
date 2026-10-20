@@ -262,8 +262,13 @@ duplicating shell parsing or build semantics inside the IDE.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, incremental stdin, resize, terminal control flow, and
       background jobs.
-- [ ] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
+- [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
+      Single files compile with `baa -o` into a private temporary directory;
+      projects run `تكوين تشغيل` from the nearest `مشروع.تكوين` root. Thirteen
+      focused tests and all 195 ArbSh tests pass locally, and a Windows/Linux
+      CI job runs real files and projects with the pinned Baa, Nazm, and
+      Takween.
 - [ ] Add Qalam shell profiles and host the ArbSh CLI in its bottom terminal
       through PTY/ConPTY. Do not embed the Avalonia window in Qt.
 - [ ] Package ArbSh independently; add it to Baa-Developer-Kit only after its
