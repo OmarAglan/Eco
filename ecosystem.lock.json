@@ -242,7 +242,7 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "bf5a7af45b3d48adf4eb866abd6e74734ee458ca",
+      "revision": "b6b322211f2765612a6de747d34c29f988426504",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
         "Interactive PTY host and arbsh-host-v1 freeze",
@@ -251,9 +251,9 @@
       "verification": {
         "state": "cross-platform-ci-verified-pty-host-and-installer-pending",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/39415497371",
-          "verified_revision": "bf5a7af45b3d48adf4eb866abd6e74734ee458ca",
-          "verified_at": "2026-10-20"
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/42999370331",
+          "verified_revision": "b6b322211f2765612a6de747d34c29f988426504",
+          "verified_at": "2026-11-11"
         }
       },
       "provides": [
@@ -269,6 +269,7 @@
         "arbsh-accessible-terminal-zoom-v1-preview-local-windows-verified",
         "arbsh-terminal-chrome-v0.8-local-windows-verified",
         "arbsh-eco-run-v1-cross-platform-verified",
+        "arbsh-interactive-run-v1-preview-windows-ci-verified",
         "arbsh-host-v1-planned",
         "eco-arabic-text-corpus-v1-planned"
       ],

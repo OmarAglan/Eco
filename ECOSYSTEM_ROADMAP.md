@@ -261,7 +261,12 @@ duplicating shell parsing or build semantics inside the IDE.
       larger typography, and focused GUI model tests.
 - [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, incremental stdin, resize, terminal control flow, and
-      background jobs.
+      background jobs. Windows foreground slice done at ArbSh `b6b3222`: the
+      program started by `تشغيل` runs in a ConPTY pseudo console inside
+      ArbSh.Terminal with line input, UTF-8 code page, Job Object ownership,
+      and `Ctrl + C` cancellation; Windows CI drives a real Baa program
+      through it. Remaining: Linux PTY, interactive plain external commands,
+      a VT screen grid, resize, and background jobs.
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;
