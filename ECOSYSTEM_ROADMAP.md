@@ -214,9 +214,17 @@ duplicating shell parsing or build semantics inside the IDE.
 - [x] Establish the .NET 10/C# 14 baseline, unified build metadata, clean
       136-test Windows receipt, vulnerability audit, self-contained Windows
       publish checks, and Windows/Linux CI gates.
-- [ ] Freeze `arbsh-host-v1`: version discovery, UTF-8 logical input/output,
+- [x] Freeze `arbsh-host-v1`: version discovery, UTF-8 logical input/output,
       working directory, environment, exit status, cancellation, and explicit
-      interactive versus non-interactive modes.
+      interactive versus non-interactive modes. ArbSh `9978eba` ships the
+      console host as `arbsh` with `--version`, `--command <line>`, and
+      `--events=jsonl` (`arbsh-events-v1`); output is logical UTF-8 without a
+      BOM, the environment is inherited unchanged, signals cancel with 130, and
+      the exit codes 0/1/2/125/127/130 are final. 29 contract tests, including
+      a real `arbsh` process, and all 236 ArbSh tests pass on Windows and Linux
+      in [run 43202051840](https://github.com/RuqoomTech/ArbSh/actions/runs/43202051840).
+      The contract's interactive items (VT grid, resize, history, completion),
+      the Qalam panel, and installer lifecycle remain open below.
 - [x] Add the reusable non-interactive structured-process core using
       argv/cwd/environment, UTF-8 stdin/stdout/stderr, exit/failure
       classification, and cancellation without a shell command string; its ten

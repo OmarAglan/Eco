@@ -242,17 +242,17 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "a568df9152de79a2384ec90b35d07f82be0803c8",
+      "revision": "9978eba25f76d83cb026b299632dd51cf3e9c599",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
-        "Interactive PTY host and arbsh-host-v1 freeze",
+        "VT screen grid, resize, and remaining arbsh-host-v1 acceptance items",
         "Standalone installer lifecycle gate"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-pty-host-and-installer-pending",
+        "state": "cross-platform-ci-verified-host-surface-frozen-installer-pending",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43197931447",
-          "verified_revision": "a568df9152de79a2384ec90b35d07f82be0803c8",
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43202051840",
+          "verified_revision": "9978eba25f76d83cb026b299632dd51cf3e9c599",
           "verified_at": "2026-11-12"
         }
       },
@@ -270,7 +270,7 @@
         "arbsh-terminal-chrome-v0.8-local-windows-verified",
         "arbsh-eco-run-v1-cross-platform-verified",
         "arbsh-interactive-run-v1-preview-cross-platform-verified",
-        "arbsh-host-v1-planned",
+        "arbsh-host-v1-surface-cross-platform-verified",
         "eco-arabic-text-corpus-v1-planned"
       ],
       "consumes": [
@@ -561,7 +561,7 @@
     {
       "id": "arbsh-host-v1",
       "owner": "arbsh",
-      "state": "planned",
+      "state": "invocation-surface-frozen-cross-platform-verified",
       "consumers": [
         "qalam",
         "baa-developer-kit"
