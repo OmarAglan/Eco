@@ -277,8 +277,15 @@ duplicating shell parsing or build semantics inside the IDE.
       ownership), with line input and `Ctrl + C` cancellation. Windows and
       Ubuntu CI drive a real Baa program through it in
       [run 43197931447](https://github.com/RuqoomTech/ArbSh/actions/runs/43197931447).
-      Remaining: interactive plain external commands, a VT screen grid,
-      resize, and background jobs.
+      ArbSh `d46775c` adds the VT screen grid and resize: the program's
+      output drives a cell grid (cursor control, erase, scroll regions,
+      SGR colors, alternate screen), finished lines move to the scrollback
+      while prompts, progress bars, and full-screen screens stay live, and
+      ConPTY/PTY follow the terminal window size, verified with real
+      processes on both platforms in
+      [run 43222835473](https://github.com/RuqoomTech/ArbSh/actions/runs/43222835473).
+      Remaining: per-key input, interactive plain external commands, and
+      background jobs.
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;

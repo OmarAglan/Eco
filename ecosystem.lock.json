@@ -243,16 +243,16 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "d9066b69be97c457adc88e76753e53655e6e2372",
+      "revision": "d46775c34a700ee6986177433db215c5440adde6",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
-        "VT screen grid, resize, and remaining arbsh-host-v1 acceptance items"
+        "Per-key input, interactive plain commands, background jobs, and remaining arbsh-host-v1 acceptance items"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-standalone-installers-optional-kit-component",
+        "state": "cross-platform-ci-verified-vt-screen-grid-resize-optional-kit-component",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43211082499",
-          "verified_revision": "d9066b69be97c457adc88e76753e53655e6e2372",
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43222835473",
+          "verified_revision": "d46775c34a700ee6986177433db215c5440adde6",
           "verified_at": "2026-11-12"
         }
       },
@@ -270,6 +270,8 @@
         "arbsh-terminal-chrome-v0.8-local-windows-verified",
         "arbsh-eco-run-v1-cross-platform-verified",
         "arbsh-interactive-run-v1-preview-cross-platform-verified",
+        "arbsh-vt-screen-grid-v1-cross-platform-verified",
+        "arbsh-pty-resize-v1-cross-platform-verified",
         "arbsh-host-v1-surface-cross-platform-verified",
         "arbsh-standalone-installer-v1-cross-platform-verified",
         "eco-arabic-text-corpus-v1-planned"
