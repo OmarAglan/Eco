@@ -242,17 +242,17 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "9978eba25f76d83cb026b299632dd51cf3e9c599",
+      "revision": "0d3617892d5bc6f0e6394150f8378b68403a48a6",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
         "VT screen grid, resize, and remaining arbsh-host-v1 acceptance items",
-        "Standalone installer lifecycle gate"
+        "Baa-Developer-Kit admission"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-host-surface-frozen-installer-pending",
+        "state": "cross-platform-ci-verified-standalone-installers-kit-admission-pending",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43202051840",
-          "verified_revision": "9978eba25f76d83cb026b299632dd51cf3e9c599",
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43206585037",
+          "verified_revision": "0d3617892d5bc6f0e6394150f8378b68403a48a6",
           "verified_at": "2026-11-12"
         }
       },
@@ -271,6 +271,7 @@
         "arbsh-eco-run-v1-cross-platform-verified",
         "arbsh-interactive-run-v1-preview-cross-platform-verified",
         "arbsh-host-v1-surface-cross-platform-verified",
+        "arbsh-standalone-installer-v1-cross-platform-verified",
         "eco-arabic-text-corpus-v1-planned"
       ],
       "consumes": [

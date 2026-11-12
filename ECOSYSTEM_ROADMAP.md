@@ -288,8 +288,17 @@ duplicating shell parsing or build semantics inside the IDE.
       Takween.
 - [ ] Add Qalam shell profiles and host the ArbSh CLI in its bottom terminal
       through PTY/ConPTY. Do not embed the Avalonia window in Qt.
-- [ ] Package ArbSh independently; add it to Baa-Developer-Kit only after its
-      standalone install/upgrade/repair/uninstall gates pass.
+- [x] Package ArbSh independently; add it to Baa-Developer-Kit only after its
+      standalone install/upgrade/repair/uninstall gates pass. ArbSh
+      `0d36178` builds an Inno Setup installer with the shared Eco helpers
+      (`arbsh.exe` alone in `bin` on PATH with ownership tracking, the terminal
+      under `terminal`, Start menu and optional Explorer entries) plus a
+      `.deb` (`/opt/arbsh`, `/usr/bin/arbsh`) and a portable `.tar.gz`. CI
+      installs an older version, upgrades, repairs deleted files, runs the
+      installed `arbsh` and terminal, and uninstalls on Windows and Linux with
+      no leftover file, key, or PATH entry in
+      [run 43206585037](https://github.com/RuqoomTech/ArbSh/actions/runs/43206585037).
+      Unsigned by decision. Kit admission is tracked under E4.3.
 - [ ] Pass Arabic paths, spaces, long paths, multiline input, history,
       completion, cancellation, nested processes, and interactive Baa/Takween
       workflows on Windows and Linux.
