@@ -737,8 +737,16 @@ not a second owner of their installed files.
       tag only in documentation; they have since moved past the tag with the
       Nazm revisions recorded under E3. The kit itself is not published.
 - [ ] Sign every public installer and the kit with a valid Authenticode chain.
-- [ ] Add ArbSh as an independently owned component only after E2.2's
-      standalone installer gate passes.
+- [x] Add ArbSh as an independently owned component only after E2.2's
+      standalone installer gate passes. The kit embeds ArbSh's own installer
+      as an optional, unchecked task (`/MERGETASKS="arbsh"` when silent), and
+      its lifecycle on a clean runner installs, probes, drives `تشغيل`, and
+      removes it (kit run 43209566204 at `035a9d8`). It joins the default set
+      only after all of E2.2 passes.
+- [x] Give every tool installer and the kit one professional appearance
+      (2026-11-12): Inno Setup's Windows 11 style follows the system light or
+      dark theme without bevels and keeps each tool's artwork in both. All
+      five tool CIs and the kit lifecycle passed on the restyled revisions.
 - [ ] Keep Pyramid-Engine and PyramidOS as optional, separately released
       workloads rather than inflating the default language developer kit.
 

@@ -46,7 +46,7 @@
       "repository": "OmarAglan/Baa",
       "version": "0.6.0",
       "version_source": "CMakeLists.txt",
-      "revision": "e418bc1d153a8bb431371942ce18f2f029b9ec7f",
+      "revision": "87514c6bb3189c5db3527fa54dc80d1db81f27c2",
       "role": "language-compiler-stdlib-contract-owner",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -54,9 +54,9 @@
       "verification": {
         "state": "v0.6.0-released-unsigned-cross-platform-ci-and-clean-machine-verified",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/39413350522",
-          "verified_revision": "e418bc1d153a8bb431371942ce18f2f029b9ec7f",
-          "verified_at": "2026-10-20"
+          "run_url": "https://github.com/OmarAglan/Baa/actions/runs/43211063686",
+          "verified_revision": "87514c6bb3189c5db3527fa54dc80d1db81f27c2",
+          "verified_at": "2026-11-12"
         }
       },
       "provides": [
@@ -83,7 +83,7 @@
       "repository": "OmarAglan/Nazm",
       "version": "1.0.0",
       "version_source": "CMakeLists.txt",
-      "revision": "f58faf061278a610720881bde015f6e70bcbd0c7",
+      "revision": "d421b213514351463a6f5a2a2815c5cd2ddd73df",
       "role": "assembler-object-writer",
       "pending_gates": [
         "Authenticode-signed Windows installer"
@@ -91,9 +91,9 @@
       "verification": {
         "state": "v1.0.0-released-unsigned-cross-platform-ci-verified-embedded-release-default-admitted",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/38537749982",
-          "verified_revision": "f58faf061278a610720881bde015f6e70bcbd0c7",
-          "verified_at": "2026-10-14"
+          "run_url": "https://github.com/OmarAglan/Nazm/actions/runs/43211070142",
+          "verified_revision": "d421b213514351463a6f5a2a2815c5cd2ddd73df",
+          "verified_at": "2026-11-12"
         }
       },
       "provides": [
@@ -113,7 +113,7 @@
       "repository": "OmarAglan/Takween",
       "version": "0.1.0",
       "version_source": "scripts/build_takween.ps1",
-      "revision": "6ee36fe20330918c82fa3291110dbd1b7b244e61",
+      "revision": "67e25f2fa970bf91df6619f7d94a77efae1420dc",
       "role": "build-dependency-package-workflow",
       "pending_gates": [
         "Registry namespace ownership"
@@ -121,9 +121,9 @@
       "verification": {
         "state": "cross-platform-ci-full-suite-verified-sdk-store-tool-environments-official-packages",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/39271303026",
-          "verified_revision": "6ee36fe20330918c82fa3291110dbd1b7b244e61",
-          "verified_at": "2026-10-19"
+          "run_url": "https://github.com/OmarAglan/Takween/actions/runs/43211076574",
+          "verified_revision": "67e25f2fa970bf91df6619f7d94a77efae1420dc",
+          "verified_at": "2026-11-12"
         }
       },
       "provides": [
@@ -151,19 +151,19 @@
       "repository": "OmarAglan/Qalam-IDE",
       "version": "3.7.0",
       "version_source": "CMakeLists.txt",
-      "revision": "f682bd9d0a25412bca1281b98d3f1d87d03dd7da",
+      "revision": "278bec1be2984f04d8c8add64ce0c2502ac8e2bc",
       "pin_policy": "frozen",
       "pin_note": "Frozen deliberately: this revision is the Qalam 3.7.0 source packaged by the Baa-Developer-Kit 0.6.0 release candidate (Baa-Developer-Kit/docs/VERIFICATION_STATUS.md). A workspace that advances past it is expected and is not a defect. Re-pin only when a new kit candidate packages a newer Qalam, moving both pins together.",
       "role": "rtl-ide-tooling-client",
       "pending_gates": [
-        "Linux installer and manual visual-review gates"
+        "Manual visual-review gate"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-linux-installer-and-visual-gates-pending",
+        "state": "cross-platform-ci-verified-windows-installer-and-linux-appimage-visual-gate-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Qalam-IDE/actions/runs/37763803691",
-          "verified_revision": "f682bd9d0a25412bca1281b98d3f1d87d03dd7da",
-          "verified_at": "2026-10-08"
+          "run_url": "https://github.com/OmarAglan/Qalam-IDE/actions/runs/43211338878",
+          "verified_revision": "278bec1be2984f04d8c8add64ce0c2502ac8e2bc",
+          "verified_at": "2026-11-12"
         }
       },
       "provides": [
@@ -179,7 +179,8 @@
         "qalam-shared-two-group-workbench-v3.5-local-windows-verified",
         "qalam-installer-v3.6-with-baa-lsp-v0.1-local-windows-package-verified",
         "qalam-takween-project-panel-v3.7-local-windows-tests-verified",
-        "qalam-installer-v3.7-with-baa-lsp-v0.1-local-windows-package-verified"
+        "qalam-installer-v3.7-with-baa-lsp-v0.1-local-windows-package-verified",
+        "qalam-linux-appimage-v3.7-with-baa-lsp-clean-ubuntu-ci-verified"
       ],
       "consumes": [
         "baa-lsp-v0.1-cross-platform-real-process-verified",
@@ -242,17 +243,16 @@
       "repository": "RuqoomTech/ArbSh",
       "version": "0.8.1-alpha",
       "version_source": "README.md",
-      "revision": "0d3617892d5bc6f0e6394150f8378b68403a48a6",
+      "revision": "d9066b69be97c457adc88e76753e53655e6e2372",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
-        "VT screen grid, resize, and remaining arbsh-host-v1 acceptance items",
-        "Baa-Developer-Kit admission"
+        "VT screen grid, resize, and remaining arbsh-host-v1 acceptance items"
       ],
       "verification": {
-        "state": "cross-platform-ci-verified-standalone-installers-kit-admission-pending",
+        "state": "cross-platform-ci-verified-standalone-installers-optional-kit-component",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43206585037",
-          "verified_revision": "0d3617892d5bc6f0e6394150f8378b68403a48a6",
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/43211082499",
+          "verified_revision": "d9066b69be97c457adc88e76753e53655e6e2372",
           "verified_at": "2026-11-12"
         }
       },
@@ -285,29 +285,31 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "ada95e7dec20cedb90d47ec458077f0ae479a089",
+      "revision": "ef391d11458e7dfa8132cacd7b0c3006cece8b4b",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
       ],
       "verification": {
-        "state": "windows-ci-lifecycle-verified-signing-pending",
+        "state": "windows-ci-lifecycle-verified-optional-arbsh-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/39272242578",
-          "verified_revision": "ada95e7dec20cedb90d47ec458077f0ae479a089",
-          "verified_at": "2026-10-19"
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/43213191930",
+          "verified_revision": "ef391d11458e7dfa8132cacd7b0c3006cece8b4b",
+          "verified_at": "2026-11-12"
         }
       },
       "provides": [
         "eco-installer-manifest-v1-local-windows-verified",
         "baa-developer-kit-installer-v0.6-local-build-verified",
-        "baa-developer-kit-installer-v0.6-ci-clean-runner-lifecycle-verified"
+        "baa-developer-kit-installer-v0.6-ci-clean-runner-lifecycle-verified",
+        "eco-installer-manifest-v1-optional-components-ci-verified"
       ],
       "consumes": [
         "nazm-installer-v1.0",
         "baa-installer-v0.6",
         "takween-installer-v0.1",
-        "qalam-installer-v3.7-with-baa-lsp-v0.1-local-windows-package-verified"
+        "qalam-installer-v3.7-with-baa-lsp-v0.1-local-windows-package-verified",
+        "arbsh-standalone-installer-v1-cross-platform-verified"
       ]
     },
     {
