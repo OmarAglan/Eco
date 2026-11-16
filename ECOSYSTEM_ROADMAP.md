@@ -284,8 +284,10 @@ duplicating shell parsing or build semantics inside the IDE.
       ConPTY/PTY follow the terminal window size, verified with real
       processes on both platforms in
       [run 43222835473](https://github.com/RuqoomTech/ArbSh/actions/runs/43222835473).
-      Remaining: per-key input, interactive plain external commands, and
-      background jobs.
+      Keys go straight to the running program as xterm sends them, and plain
+      foreground external commands run in the pseudo terminal, verified in
+      [run 43841352168](https://github.com/RuqoomTech/ArbSh/actions/runs/43841352168).
+      Remaining: background jobs.
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;
