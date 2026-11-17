@@ -267,7 +267,7 @@ duplicating shell parsing or build semantics inside the IDE.
 - [x] Polish the standalone terminal with Arabic application chrome and icon,
       a compact live working-directory panel, execution status, shortcut hints,
       larger typography, and focused GUI model tests.
-- [ ] Add ConPTY on Windows and PTY on Linux for foreground interactive
+- [x] Add ConPTY on Windows and PTY on Linux for foreground interactive
       processes, incremental stdin, resize, terminal control flow, and
       background jobs. The foreground slice is done on both platforms at
       ArbSh `a568df9`: the program started by `تشغيل` runs inside
@@ -288,7 +288,16 @@ duplicating shell parsing or build semantics inside the IDE.
       foreground external commands run in the pseudo terminal, verified in
       [run 43841352168](https://github.com/RuqoomTech/ArbSh/actions/runs/43841352168).
       Rows stay live while on screen, so ConPTY's repaint after a resize no
-      longer loses output (ArbSh `2fb9767`). Remaining: background jobs.
+      longer loses output (ArbSh `2fb9767`). Background jobs are done at
+      ArbSh `d73ff46`: a trailing `&` runs the command on a copy of the
+      session, `المهام` lists jobs and `أوقف` stops one with its process
+      tree, and every host stops or waits for its jobs, verified on both
+      platforms in
+      [run 44069499812](https://github.com/RuqoomTech/ArbSh/actions/runs/44069499812).
+      ArbSh 0.9.0 is published as
+      [v0.9.0](https://github.com/RuqoomTech/ArbSh/releases/tag/v0.9.0)
+      (`46f68ef`, unsigned), and the kit packages it at `72c2d3b` in
+      [run 44069434926](https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/44069434926).
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;
