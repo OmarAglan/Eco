@@ -296,8 +296,10 @@ duplicating shell parsing or build semantics inside the IDE.
       [run 44069499812](https://github.com/RuqoomTech/ArbSh/actions/runs/44069499812).
       ArbSh 0.9.0 is published as
       [v0.9.0](https://github.com/RuqoomTech/ArbSh/releases/tag/v0.9.0)
-      (`46f68ef`, unsigned), and the kit packages it at `72c2d3b` in
-      [run 44069434926](https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/44069434926).
+      (`46f68ef`, unsigned). Background jobs ship in
+      [v0.9.1](https://github.com/RuqoomTech/ArbSh/releases/tag/v0.9.1)
+      (`effd5f2`, unsigned), which the kit packages at `62f8616` in
+      [run 44127126999](https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/44127126999).
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;
@@ -306,7 +308,15 @@ duplicating shell parsing or build semantics inside the IDE.
       CI job runs real files and projects with the pinned Baa, Nazm, and
       Takween.
 - [ ] Add Qalam shell profiles and host the ArbSh CLI in its bottom terminal
-      through PTY/ConPTY. Do not embed the Avalonia window in Qt.
+      through PTY/ConPTY. Do not embed the Avalonia window in Qt. The pipe
+      profile is done: Qalam `659893c` adds a shell button (system or
+      ArbSh) whose choice is saved, runs `arbsh --interactive` from PATH or
+      `QALAM_ARBSH_PATH` with the Eco tools on its PATH, and falls back to
+      the system shell without it
+      ([run 44123656174](https://github.com/OmarAglan/Qalam-IDE/actions/runs/44123656174)).
+      ArbSh `effd5f2` keeps its output in logical order on pipes so Qt's
+      BiDi shows it correctly. Remaining: PTY/ConPTY hosting, and Tab
+      completion and full-screen programs inside Qalam.
 - [x] Package ArbSh independently; add it to Baa-Developer-Kit only after its
       standalone install/upgrade/repair/uninstall gates pass. ArbSh
       `0d36178` builds an Inno Setup installer with the shared Eco helpers

@@ -241,18 +241,18 @@
       "id": "arbsh",
       "path": "ArbSh",
       "repository": "RuqoomTech/ArbSh",
-      "version": "0.9.0",
+      "version": "0.9.1",
       "version_source": "README.md",
-      "revision": "d73ff4664831c46e47e5d62c7f659c49afabfc0d",
+      "revision": "effd5f2d4c1692e05fed48d6392eb718a5e998d9",
       "role": "arabic-first-shell-and-terminal-host",
       "pending_gates": [
         "Qalam-hosted parity and remaining arbsh-host-v1 acceptance items"
       ],
       "verification": {
-        "state": "v0.9.0-released-cross-platform-ci-verified-background-jobs-optional-kit-component",
+        "state": "v0.9.1-released-cross-platform-ci-verified-background-jobs-optional-kit-component",
         "receipt": {
-          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/44069499812",
-          "verified_revision": "d73ff4664831c46e47e5d62c7f659c49afabfc0d",
+          "run_url": "https://github.com/RuqoomTech/ArbSh/actions/runs/44123603399",
+          "verified_revision": "effd5f2d4c1692e05fed48d6392eb718a5e998d9",
           "verified_at": "2026-11-17"
         }
       },
@@ -278,6 +278,7 @@
         "arbsh-tab-completion-v1-cross-platform-verified",
         "arbsh-multiline-input-v1-cross-platform-verified",
         "arbsh-background-jobs-v1-cross-platform-verified",
+        "arbsh-pipe-hosted-interactive-v1-cross-platform-verified",
         "arbsh-host-v1-surface-cross-platform-verified",
         "arbsh-standalone-installer-v1-cross-platform-verified",
         "eco-arabic-text-corpus-v1-planned"
@@ -293,7 +294,7 @@
       "repository": "OmarAglan/Baa-Developer-Kit",
       "version": "0.6.0",
       "version_source": "scripts/Build-DeveloperKitInstaller.ps1",
-      "revision": "72c2d3b799dcf6a18096fb795f0b7a54b1285448",
+      "revision": "62f8616793c0784b8a1e090f358b2106edc82641",
       "role": "offline-installer-orchestrator",
       "pending_gates": [
         "Authenticode signing chain"
@@ -301,8 +302,8 @@
       "verification": {
         "state": "windows-ci-lifecycle-verified-optional-arbsh-signing-pending",
         "receipt": {
-          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/44069434926",
-          "verified_revision": "72c2d3b799dcf6a18096fb795f0b7a54b1285448",
+          "run_url": "https://github.com/OmarAglan/Baa-Developer-Kit/actions/runs/44127126999",
+          "verified_revision": "62f8616793c0784b8a1e090f358b2106edc82641",
           "verified_at": "2026-11-17"
         }
       },
