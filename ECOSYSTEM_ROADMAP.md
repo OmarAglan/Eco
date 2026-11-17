@@ -287,7 +287,8 @@ duplicating shell parsing or build semantics inside the IDE.
       Keys go straight to the running program as xterm sends them, and plain
       foreground external commands run in the pseudo terminal, verified in
       [run 43841352168](https://github.com/RuqoomTech/ArbSh/actions/runs/43841352168).
-      Remaining: background jobs.
+      Rows stay live while on screen, so ConPTY's repaint after a resize no
+      longer loses output (ArbSh `2fb9767`). Remaining: background jobs.
 - [x] Make `تشغيل` invoke Baa single-file workflows and Takween projects through
       their public CLIs while preserving their exit codes and diagnostics.
       Single files compile with `baa -o` into a private temporary directory;
@@ -310,7 +311,12 @@ duplicating shell parsing or build semantics inside the IDE.
       Unsigned by decision. Kit admission is tracked under E4.3.
 - [ ] Pass Arabic paths, spaces, long paths, multiline input, history,
       completion, cancellation, nested processes, and interactive Baa/Takween
-      workflows on Windows and Linux.
+      workflows on Windows and Linux. Standalone ArbSh.Terminal now has
+      persistent Up/Down history, Tab completion of Arabic command names and
+      paths, and multiline input (open quote or bracket, trailing `|`, or
+      `Shift + Enter`), verified with the rest of the suite in
+      [run 44065312379](https://github.com/RuqoomTech/ArbSh/actions/runs/44065312379)
+      at ArbSh `6f092a7`. Remaining: the same checks inside Qalam.
 
 **Gate:** the same ArbSh session can build and run a Takween project standalone
 and inside Qalam on Windows/Linux, with equivalent output and no surviving
